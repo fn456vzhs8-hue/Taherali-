@@ -43,8 +43,8 @@ export default function Navbar() {
     <>
       <div className="bg-[#556B2F] text-white text-xs sm:text-sm py-2 px-4 text-center font-medium flex items-center justify-center gap-3" data-testid="top-notice-bar">
         <Sparkles className="w-4 h-4 text-[#D4AF37] animate-pulse" />
-        <span className="hidden sm:inline">Direct Wholesale Supplier · Aliabad Kotla, Charminar, Hyderabad · Bulk Orders Welcome</span>
-        <span className="sm:hidden">Aliabad Kotla · Hyderabad</span>
+        <span className="hidden sm:inline">Direct Wholesale Supplier · Alijah Kotla, Charminar, Hyderabad · Bulk Orders Welcome</span>
+        <span className="sm:hidden">Alijah Kotla · Hyderabad</span>
       </div>
 
       <nav className="sticky top-0 z-40 glass-panel shadow-sm border-b border-[#556B2F]/20 transition-colors" data-testid="main-navbar">

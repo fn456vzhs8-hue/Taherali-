@@ -15,7 +15,7 @@ const TESTIMONIALS = [
 ];
 
 const FAQS = [
-  { q: "Do you deliver across all of Hyderabad?", a: "Yes, we service all of Hyderabad including Old City, Secunderabad, Cyberabad, and outskirts. Free delivery within 3 km of Aliabad Kotla, Charminar; ₹50 charge beyond 3 km." },
+  { q: "Do you deliver across all of Hyderabad?", a: "Yes, we service all of Hyderabad including Old City, Secunderabad, Cyberabad, and outskirts. Free delivery within 3 km of Alijah Kotla, Charminar; ₹50 charge beyond 3 km." },
   { q: "Can I mix retail and wholesale items in one order?", a: "Absolutely. Your cart supports both retail and wholesale products together. At checkout, we group them clearly and send one combined WhatsApp order to us." },
   { q: "Are products preservative-free?", a: "All our pickles are prepared using traditional recipes with no artificial preservatives. Biscuits are baked fresh daily. Ghee is 100% pure cow milk fat." },
   { q: "Can I request custom packaging for my store?", a: "Yes, for bulk orders we can discuss custom labeling and packaging. Add items to your cart and mention your requirement in the Order Notes field at checkout." },
@@ -55,7 +55,7 @@ export default function HomePage() {
             </p>
 
             <p className="text-base sm:text-lg text-gray-700 dark:text-[#d9d3c1] max-w-xl leading-relaxed">
-              Supplying quality pickles, bakery biscuits, sweets, and pure ghee across Hyderabad, Telangana. Direct from our hygienic facility at Aliabad Kotla, Charminar to your retail store, restaurant, or bulk celebration.
+              Supplying quality pickles, bakery biscuits, sweets, and pure ghee across Hyderabad, Telangana. Direct from our hygienic facility at Alijah Kotla, Charminar to your retail store, restaurant, or bulk celebration.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -134,7 +134,7 @@ export default function HomePage() {
               Taher Ali Enterprises is a trusted wholesale supplier serving customers across Hyderabad, Telangana. Since 2015, we've been providing quality food products including pickles, biscuits, sweets and pure ghee at competitive wholesale prices.
             </p>
             <p className="text-base text-gray-700 dark:text-[#d9d3c1] leading-relaxed">
-              Our goal is simple: fresh products, honest pricing, and reliable customer service. Every batch is rigorously quality-tested before dispatch from our facility at Aliabad Kotla, Charminar.
+              Our goal is simple: fresh products, honest pricing, and reliable customer service. Every batch is rigorously quality-tested before dispatch from our facility at Alijah Kotla, Charminar.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
@@ -160,7 +160,7 @@ export default function HomePage() {
               <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-[#556B2F] to-[#2C3E1F] flex items-center justify-center text-white text-3xl font-bold shadow-lg">TA</div>
               <div>
                 <h3 className="text-2xl font-bold font-serif text-[#2C3E1F] dark:text-[#F5F1E4]">Taher Ali Enterprises</h3>
-                <p className="text-sm text-[#8B5A2B] dark:text-[#D4AF37] font-medium">Established at Aliabad Kotla, Charminar (2015)</p>
+                <p className="text-sm text-[#8B5A2B] dark:text-[#D4AF37] font-medium">Established at Alijah Kotla, Charminar (2015)</p>
               </div>
               <div className="border-t border-[#556B2F]/20 pt-6 space-y-3 text-left text-sm">
                 <Row label="Main Office" value={BUSINESS_INFO.location} />

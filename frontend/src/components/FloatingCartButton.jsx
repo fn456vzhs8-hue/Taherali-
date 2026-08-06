@@ -24,8 +24,7 @@ export default function FloatingCartButton() {
 
   const path = location.pathname;
   const isDetail = /^\/products\/[^/]+$/.test(path);
-  const isWholesale = path.startsWith("/wholesale");
-  const allowedPath = !isDetail && !isWholesale;
+  const allowedPath = !isDetail;
 
   const visible = allowedPath && totalItemsCount > 0 && scrolled;
 

@@ -7,6 +7,7 @@ import {
 import { WHOLESALE_PRODUCTS, WHOLESALE_CATEGORIES } from "../data/wholesaleProducts";
 import { useShop } from "../context/ShopContext";
 import { flyToCart } from "../utils/flyToCart";
+import WholesaleQuantityDialog from "../components/WholesaleQuantityDialog";
 
 const SORT_OPTIONS = [
   { key: "name", label: "Name (A-Z)" },
@@ -24,6 +25,7 @@ export default function WholesaleProductsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [sortKey, setSortKey] = useState("name");
   const [showFilters, setShowFilters] = useState(false);
+  const [pendingProduct, setPendingProduct] = useState(null);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -60,8 +62,11 @@ export default function WholesaleProductsPage() {
     setSortKey("name");
   };
 
-  const handleAdd = (product, sourceEl) => {
-    if (sourceEl) flyToCart(sourceEl);
+  const openQuantityDialog = (product) => {
+    setPendingProduct(product);
+  };
+
+  const confirmWholesaleAdd = (product, qty) => {
     addToCart({
       id: product.id,
       name: product.name,
@@ -69,7 +74,8 @@ export default function WholesaleProductsPage() {
       weight: product.weight,
       category: product.categories[0] || "Wholesale",
       type: "wholesale",
-    }, 1);
+    }, qty);
+    setPendingProduct(null);
   };
 
   const getCartQty = (id) => {
@@ -209,13 +215,20 @@ export default function WholesaleProductsPage() {
               product={p}
               index={idx}
               cartQty={getCartQty(p.id)}
-              onAdd={handleAdd}
+              onAdd={() => openQuantityDialog(p)}
               onInc={(e) => { flyToCart(e.currentTarget); updateQuantity(p.id, 1); }}
               onDec={() => updateQuantity(p.id, -1)}
             />
           ))}
         </div>
       )}
+
+      {/* Wholesale bulk quantity picker */}
+      <WholesaleQuantityDialog
+        product={pendingProduct}
+        onClose={() => setPendingProduct(null)}
+        onConfirm={confirmWholesaleAdd}
+      />
     </div>
   );
 }
@@ -279,7 +292,7 @@ function WholesaleRow({ product, index, cartQty, onAdd, onInc, onDec }) {
             </button>
           </div>
         ) : (
-          <button onClick={(e) => { e.stopPropagation(); onAdd(product, e.currentTarget); }}
+          <button onClick={(e) => { e.stopPropagation(); onAdd(); }}
             className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#556B2F] hover:bg-[#2C3E1F] text-white font-bold text-sm shadow-md transition-all transform active:scale-95"
             data-testid={`wholesale-add-to-cart-${product.id}`}>
             <ShoppingCart className="w-4 h-4" /> Add to Cart

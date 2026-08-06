@@ -77,7 +77,7 @@ export default function CheckoutModal() {
       lines.push(form.orderNotes.trim());
     }
     lines.push("");
-    lines.push(`📍 *Delivery:* Free within 3 km of Aliabad Kotla, Charminar, Hyderabad. ₹50 charge beyond 3 km.`);
+    lines.push(`📍 *Delivery:* Free within 3 km of Alijah Kotla, Charminar, Hyderabad. ₹50 charge beyond 3 km.`);
     lines.push("");
     lines.push(`Please confirm product availability, final quotation, delivery charges, and expected delivery date.`);
     lines.push("");
@@ -208,7 +208,7 @@ export default function CheckoutModal() {
                       <CheckCircle2 className="w-4 h-4" /> Free Delivery
                     </p>
                     <p className="text-[11px] text-gray-700 dark:text-[#d9d3c1] leading-snug mt-0.5">
-                      Available within <strong>3 km</strong> of Aliabad Kotla, Charminar, Hyderabad.
+                      Available within <strong>3 km</strong> of Alijah Kotla, Charminar, Hyderabad.
                     </p>
                   </div>
                   <div className="rounded-xl bg-[#F4EEDD] dark:bg-[#243020] border border-[#556B2F]/25 px-3 py-2.5">

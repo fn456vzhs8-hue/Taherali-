@@ -164,15 +164,15 @@ export const PRODUCTS = [
 export const BUSINESS_INFO = {
   name: "Taher Ali Enterprises",
   tagline: "Premium Wholesale Food Products",
-  description: "Wholesale food supplier based at Aliabad Kotla, Charminar, Hyderabad — serving all of Hyderabad, Telangana.",
+  description: "Wholesale food supplier based at Alijah Kotla, Charminar, Hyderabad — serving all of Hyderabad, Telangana.",
   owner: "Mohammed Abdullah Bilal",
   phone: "6305486808",
   whatsappNumber: "916305486808",
-  location: "Aliabad Kotla, Charminar, Hyderabad",
+  location: "Alijah Kotla, Charminar, Hyderabad",
   serviceArea: "All over Hyderabad & Telangana",
   businessHours: "Monday - Saturday: 8:00 AM - 8:00 PM (Sunday Open for Bulk Dispatch)",
   established: "2015",
-  googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Aliabad+Kotla+Charminar+Hyderabad",
+  googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Alijah+Kotla+Charminar+Hyderabad",
   freeDeliveryRadiusKm: 3,
   deliveryChargeOutside: 50
 };

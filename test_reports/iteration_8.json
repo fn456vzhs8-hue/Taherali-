@@ -1,0 +1,21 @@
+{
+  "summary": "Frontend-only targeted testing of the 3 fixes: (1) address wording 'Alijah Kotla', (2) floating cart button visible on /wholesale, (3) wholesale bulk-quantity picker dialog with min-10 validation. All three feature groups pass end-to-end. Also verified retail flow regression and unified WhatsApp checkout.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Pre-existing (unrelated to this iteration) React hydration warning: '<span> cannot be a child of <option>' inside the <select> on WholesaleProductsPage.jsx. This is caused by the visual-editor injector wrapping option text in a <span>. Not user-visible and not introduced by this iteration, but worth flagging."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "100%"},
+  "seed_data_creation": "None. LocalStorage cleared before each flow.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All three requested fixes verified: Alijah Kotla present everywhere (home hero, About, Navbar top notice, Contact map card, Checkout delivery-info-box, WhatsApp order message) and no 'Aliabad' remains in /app/frontend/src. Wholesale bulk-order dialog (data-testid='wholesale-qty-dialog') opens on wholesale-add-to-cart-* click without incrementing cart; presets 20/50/100/Custom render with default 20; total updates correctly; custom qty 5 shows red warning ('Please choose 10 or more units for wholesale orders.') and disables confirm; custom qty 10 enables confirm with label 'Add 10 to Cart'; preset 50 confirm adds 50 to unified cart, row swaps to -qty+ controls, +1 -> 51, -3 -> 48, badge & floating cart totals update. Floating cart on /wholesale hidden at scroll<=320 and visible after scroll>320 with correct total/items; hidden on /products/:id. Retail add-to-cart-p1 still adds immediately with no dialog. Unified WhatsApp URL contains both '*Retail Products*' and '*Wholesale Products*' sections plus 'Alijah Kotla, Charminar, Hyderabad'. No console errors caused by these changes (only a pre-existing hydration warning from visual-editor <span> injection inside <option> tags).",
+  "rca of the issue": "N/A — verification pass"
+}
