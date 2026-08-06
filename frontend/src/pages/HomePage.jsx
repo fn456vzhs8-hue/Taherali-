@@ -438,13 +438,20 @@ export default function HomePage() {
               <p className="text-lg sm:text-xl text-gray-100 max-w-2xl mx-auto">
                 Browse our complete wholesale catalog — 10 hand-picked products across pickles, biscuits, and pure ghee, ready for bulk dispatch across Hyderabad.
               </p>
-              <div className="pt-4">
+              <div className="pt-4 flex flex-wrap gap-4 justify-center">
                 <Link
                   to="/products"
-                  className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#D4AF37] hover:bg-[#c59d2e] text-[#2C3E1F] font-extrabold text-lg shadow-2xl transition-all transform hover:-translate-y-1 hover:scale-105"
+                  className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#D4AF37] hover:bg-[#c59d2e] text-[#2C3E1F] font-extrabold text-base sm:text-lg shadow-2xl transition-all transform hover:-translate-y-1 hover:scale-105"
                   data-testid="cta-explore-products-btn"
                 >
-                  Explore Our Products <ArrowRight className="w-6 h-6" />
+                  Retail Products (with images) <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  to="/wholesale"
+                  className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-[#D4AF37]/60 text-[#D4AF37] hover:text-white font-extrabold text-base sm:text-lg shadow-2xl transition-all transform hover:-translate-y-1"
+                  data-testid="cta-wholesale-btn"
+                >
+                  Wholesale Catalog (100+ items) <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
               <p className="text-xs text-gray-200 pt-2">

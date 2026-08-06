@@ -28,7 +28,8 @@ export default function Footer() {
           <h4 className="font-bold text-base text-[#D4AF37]">Quick Links</h4>
           <ul className="space-y-2 text-sm text-gray-200">
             <li><Link to="/" className="hover:text-[#D4AF37] transition-colors">Home</Link></li>
-            <li><Link to="/products" className="hover:text-[#D4AF37] transition-colors">Products Catalog</Link></li>
+            <li><Link to="/products" className="hover:text-[#D4AF37] transition-colors">Retail Products (with images)</Link></li>
+            <li><Link to="/wholesale" className="hover:text-[#D4AF37] transition-colors">Wholesale Catalog (text-only)</Link></li>
             <li><button onClick={() => setBulkCalculatorOpen(true)} className="hover:text-[#D4AF37] transition-colors text-left">Bulk Quote Calculator</button></li>
             <li><Link to="/#about" className="hover:text-[#D4AF37] transition-colors">About Us</Link></li>
             <li><Link to="/#contact" className="hover:text-[#D4AF37] transition-colors">Contact & Location</Link></li>

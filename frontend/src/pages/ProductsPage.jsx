@@ -65,6 +65,21 @@ export default function ProductsPage() {
         </button>
       </div>
 
+      {/* WHOLESALE STRIP */}
+      <div className="mb-8 glass-panel p-5 rounded-2xl border border-[#D4AF37]/40 bg-gradient-to-r from-[#F4EEDD] to-[#F4EEDD]/50 dark:from-[#243020] dark:to-[#243020]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="text-center sm:text-left">
+          <p className="text-xs font-bold text-[#8B5A2B] dark:text-[#D4AF37] uppercase tracking-wider">Looking for the full wholesale range?</p>
+          <p className="text-sm text-gray-700 dark:text-[#d9d3c1]">Browse our 100+ product text-only wholesale catalog with quote requests — designed for bulk buyers.</p>
+        </div>
+        <Link
+          to="/wholesale"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#2C3E1F] hover:bg-[#556B2F] text-white font-semibold text-sm shadow-md transition-colors whitespace-nowrap"
+          data-testid="retail-to-wholesale-link"
+        >
+          Open Wholesale Catalog <ChevronRight className="w-4 h-4" />
+        </Link>
+      </div>
+
       {/* FILTERS ROW */}
       <div className="glass-panel p-4 sm:p-5 rounded-2xl border border-[#556B2F]/20 flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between mb-10">
         <div className="flex flex-wrap gap-2">

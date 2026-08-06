@@ -10,6 +10,7 @@ import BulkCalculatorModal from "./components/BulkCalculatorModal";
 import HomePage from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import WholesaleProductsPage from "./pages/WholesaleProductsPage";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/products" element={<ProductsPage />} />
               <Route path="/products/:id" element={<ProductDetailPage />} />
+              <Route path="/wholesale" element={<WholesaleProductsPage />} />
               <Route path="*" element={<HomePage />} />
             </Routes>
           </main>

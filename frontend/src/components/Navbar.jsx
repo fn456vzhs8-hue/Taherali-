@@ -16,13 +16,15 @@ export default function Navbar() {
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/products", label: "Products" },
+    { to: "/wholesale", label: "Wholesale" },
     { to: "/#about", label: "About" },
     { to: "/#contact", label: "Contact" },
   ];
 
   const isActive = (to) => {
     if (to === "/") return location.pathname === "/";
-    if (to === "/products") return location.pathname.startsWith("/products");
+    if (to === "/products") return location.pathname === "/products" || location.pathname.startsWith("/products/");
+    if (to === "/wholesale") return location.pathname.startsWith("/wholesale");
     return false;
   };
 
