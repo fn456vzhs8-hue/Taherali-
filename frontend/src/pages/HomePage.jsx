@@ -301,7 +301,7 @@ export default function HomePage() {
 
                 <ContactRow icon={<Phone className="w-5 h-5" />} title="Phone & WhatsApp">
                   <a href={`tel:${BUSINESS_INFO.phone}`} className="font-bold hover:text-[#556B2F] font-mono text-base">{BUSINESS_INFO.phone}</a>
-                  <p className="text-xs text-green-600 dark:text-green-400 font-medium">Available on WhatsApp for instant orders</p>
+                  <p className="text-xs text-green-700 dark:text-green-400 font-semibold">Available on WhatsApp for instant orders</p>
                 </ContactRow>
 
                 <ContactRow icon={<MapPin className="w-5 h-5" />} title="Location & Service Area">

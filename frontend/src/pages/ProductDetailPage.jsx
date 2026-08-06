@@ -155,7 +155,7 @@ export default function ProductDetailPage() {
               <div className="flex flex-wrap items-center gap-3 text-sm text-gray-700 dark:text-[#e8e2ce]">
                 <span>Weight: <strong className="text-[#2C3E1F] dark:text-[#F5F1E4]">{product.weight}</strong></span>
                 <span>•</span>
-                <span className="text-green-600 dark:text-green-400 font-semibold flex items-center gap-1">
+                <span className="text-green-700 dark:text-green-400 font-semibold flex items-center gap-1">
                   <CheckCircle2 className="w-4 h-4" /> {product.availability}
                 </span>
               </div>
