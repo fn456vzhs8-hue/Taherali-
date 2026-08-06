@@ -162,7 +162,7 @@ export default function WholesaleQuantityDialog({ product, onClose, onConfirm })
             Cancel
           </button>
           <button onClick={handleConfirm} disabled={isBelowMin}
-            className={`flex-1 py-3 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all ${isBelowMin ? 'bg-gray-300 dark:bg-[#3a4a30] text-gray-700 cursor-not-allowed' : 'bg-[#556B2F] hover:bg-[#2C3E1F] text-white transform active:scale-95'}`}
+            className={`flex-1 py-3 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all ${isBelowMin ? 'bg-gray-200 dark:bg-[#3a4a30] text-gray-500 dark:text-gray-500 opacity-60 cursor-not-allowed' : 'bg-[#556B2F] hover:bg-[#2C3E1F] text-white transform active:scale-95'}`}
             data-testid="wholesale-qty-confirm-btn">
             <ShoppingCart className="w-4 h-4" /> Add {quantity} to Cart
           </button>
