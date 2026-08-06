@@ -194,7 +194,7 @@ export const PRODUCTS = [
 export const BUSINESS_INFO = {
   name: "Taher Ali Enterprises",
   tagline: "Premium Wholesale Food Products",
-  description: "Supplying quality products across Hyderabad, Telangana.",
+  description: "Wholesale food supplier based at Alija Kotla, Charminar, Hyderabad — serving all of Hyderabad, Telangana.",
   owner: "Mohammed Abdullah Bilal",
   phone: "6305486808",
   whatsappNumber: "916305486808",
