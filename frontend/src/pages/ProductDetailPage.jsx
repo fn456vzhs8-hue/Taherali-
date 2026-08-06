@@ -106,10 +106,23 @@ export default function ProductDetailPage() {
                 {product.badge}
               </span>
 
-              <div className={`text-[8rem] sm:text-[10rem] transition-transform duration-500 ${activeImageZoom ? 'scale-150' : 'group-hover:scale-110'}`}>
-                {emoji}
+              <div className={`w-full h-full transition-transform duration-500 ${activeImageZoom ? 'scale-150' : 'group-hover:scale-105'}`}>
+                {product.image ? (
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                    data-testid="product-main-image"
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center">
+                    <div className="text-[8rem] sm:text-[10rem]">
+                      {emoji}
+                    </div>
+                    <span className="text-xs font-semibold text-gray-600 dark:text-[#dcd6bf] uppercase tracking-widest mt-4">[ Image Placeholder ]</span>
+                  </div>
+                )}
               </div>
-              <span className="text-xs font-semibold text-gray-600 dark:text-[#dcd6bf] uppercase tracking-widest mt-4">[ Image Placeholder ]</span>
 
               <div className="absolute bottom-5 left-5 px-4 py-2 rounded-xl bg-black/60 text-white text-xs font-medium flex items-center gap-2 backdrop-blur-sm">
                 <ZoomIn className="w-4 h-4" /> {activeImageZoom ? 'Click to zoom out' : 'Click to zoom image'}
@@ -119,8 +132,12 @@ export default function ProductDetailPage() {
             {/* Thumbnail placeholders (future gallery) */}
             <div className="grid grid-cols-4 gap-3">
               {[1, 2, 3, 4].map(n => (
-                <div key={n} className="aspect-square rounded-xl bg-[#F4EEDD]/70 dark:bg-[#243020]/80 border border-[#556B2F]/20 flex items-center justify-center text-2xl opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
-                  {emoji}
+                <div key={n} className="aspect-square rounded-xl bg-[#F4EEDD]/70 dark:bg-[#243020]/80 border border-[#556B2F]/20 flex items-center justify-center overflow-hidden opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+                  {product.image ? (
+                    <img src={product.image} alt={`${product.name} thumbnail ${n}`} className="w-full h-full object-cover" loading="lazy" />
+                  ) : (
+                    <span className="text-2xl">{emoji}</span>
+                  )}
                 </div>
               ))}
             </div>
@@ -338,7 +355,11 @@ function MiniCard({ product }) {
       data-testid={`related-product-${product.id}`}
     >
       <div className="relative w-full h-32 sm:h-40 rounded-xl bg-gradient-to-br from-[#F4EEDD] to-[#e8dfc8] dark:from-[#243020] dark:to-[#1a2416] flex items-center justify-center mb-3 overflow-hidden">
-        <span className="text-5xl group-hover:scale-125 transition-transform">{emoji}</span>
+        {product.image ? (
+          <img src={product.image} alt={product.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+        ) : (
+          <span className="text-5xl group-hover:scale-125 transition-transform">{emoji}</span>
+        )}
       </div>
       <div>
         <h4 className="font-bold text-sm mb-1 line-clamp-1 text-[#2C3E1F] dark:text-[#F5F1E4]">{product.name}</h4>

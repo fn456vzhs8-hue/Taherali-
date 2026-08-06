@@ -48,10 +48,22 @@ export default function ProductCard({ product }) {
             {product.badge}
           </span>
 
-          <div className="text-5xl mb-2 group-hover:scale-125 transition-transform duration-300">
-            {emoji}
-          </div>
-          <span className="text-[10px] font-semibold text-gray-600 dark:text-[#dcd6bf] uppercase tracking-widest">[ Image Placeholder ]</span>
+          {product.image ? (
+            <img
+              src={product.image}
+              alt={product.name}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              data-testid={`product-image-${product.id}`}
+            />
+          ) : (
+            <>
+              <div className="text-5xl mb-2 group-hover:scale-125 transition-transform duration-300">
+                {emoji}
+              </div>
+              <span className="text-[10px] font-semibold text-gray-600 dark:text-[#dcd6bf] uppercase tracking-widest">[ Image Placeholder ]</span>
+            </>
+          )}
 
           <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
             <span className="px-3.5 py-1.5 rounded-lg bg-[#556B2F] text-white text-xs font-bold shadow flex items-center gap-1.5">
