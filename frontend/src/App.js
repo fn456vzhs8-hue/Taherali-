@@ -6,7 +6,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CartDrawer from "./components/CartDrawer";
 import CheckoutModal from "./components/CheckoutModal";
-import BulkCalculatorModal from "./components/BulkCalculatorModal";
 import FloatingCartButton from "./components/FloatingCartButton";
 import HomePage from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage";
@@ -35,7 +34,6 @@ export default function App() {
 
           <CartDrawer />
           <CheckoutModal />
-          <BulkCalculatorModal />
           <FloatingCartButton />
           <Toaster richColors position="top-right" closeButton />
         </div>

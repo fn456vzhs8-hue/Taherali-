@@ -5,9 +5,7 @@ export const PRODUCTS = [
     category: "Pickles",
     weight: "250g",
     price: 89,
-    wholesalePricePerKg: 320,
     description: "Traditional homemade mango pickle prepared with carefully selected raw mangoes, aromatic spices, and premium edible oil. Rich in authentic Hyderabadi flavor, perfect with rice, roti, paratha, and biryani.",
-    popular: true,
     badge: "Bestseller",
     imageType: "pickle",
     availability: "In Stock (Ready for Bulk Dispatch)",
@@ -15,7 +13,6 @@ export const PRODUCTS = [
     storage: "Store in a cool dry place away from direct sunlight. Keep the container tightly closed after opening. Use a clean dry spoon.",
     shelfLife: "Best before 6 months from the date of packing.",
     bestServedWith: "Steamed rice, roti, paratha, biryani, and daily meals.",
-    packagingDetails: "Hygienically sealed glass/PET jar designed for retail and wholesale transport.",
     highlights: ["100% Authentic Hyderabad Recipe", "No Artificial Preservatives", "Hand-ground spices in mustard oil", "Rich authentic aroma & taste"]
   },
   {
@@ -24,9 +21,7 @@ export const PRODUCTS = [
     category: "Pickles",
     weight: "250g",
     price: 89,
-    wholesalePricePerKg: 320,
     description: "A delicious mixed vegetable pickle made using fresh vegetables and traditional Indian spices. Offers a balanced combination of tangy and spicy flavors.",
-    popular: false,
     badge: "Traditional",
     imageType: "pickle",
     availability: "In Stock (Ready for Bulk Dispatch)",
@@ -34,7 +29,6 @@ export const PRODUCTS = [
     storage: "Store in a cool dry place away from direct sunlight. Keep the container tightly closed after opening.",
     shelfLife: "Best before 6 months from the date of packing.",
     bestServedWith: "Roti, paratha, dal rice, and snack accompaniments.",
-    packagingDetails: "Secure food-grade jar for long shelf life and safe transit.",
     highlights: ["Crunchy Farm Vegetables", "Rich Aromatic Spices", "Prepared under hygienic conditions"]
   },
   {
@@ -43,9 +37,7 @@ export const PRODUCTS = [
     category: "Pickles",
     weight: "250g",
     price: 89,
-    wholesalePricePerKg: 320,
     description: "Prepared using fresh lemons and traditional spices to deliver a refreshing tangy taste. A perfect accompaniment for everyday meals.",
-    popular: false,
     badge: "Tangy",
     imageType: "pickle",
     availability: "In Stock (Ready for Bulk Dispatch)",
@@ -53,7 +45,6 @@ export const PRODUCTS = [
     storage: "Store in a cool dry place away from direct sunlight. Keep the container tightly closed after opening.",
     shelfLife: "Best before 6 months from the date of packing.",
     bestServedWith: "Khichdi, curd rice, paratha, and Indian thalis.",
-    packagingDetails: "Airtight packaging to preserve natural citrus oils and freshness.",
     highlights: ["Digestive & Refreshing", "Sun-cured for optimal flavor", "Zero artificial colors"]
   },
   {
@@ -62,9 +53,7 @@ export const PRODUCTS = [
     category: "Pickles",
     weight: "250g",
     price: 89,
-    wholesalePricePerKg: 320,
     description: "A rich and flavorful tomato pickle made from ripe tomatoes blended with authentic spices for a delicious homemade taste.",
-    popular: false,
     badge: "Special",
     imageType: "pickle",
     availability: "In Stock (Ready for Bulk Dispatch)",
@@ -72,7 +61,6 @@ export const PRODUCTS = [
     storage: "Store in a cool dry place away from direct sunlight. Keep the container tightly closed after opening. Refrigerate after opening.",
     shelfLife: "Best before 6 months from the date of packing.",
     bestServedWith: "Idli, dosa, hot rice, and breakfast dishes.",
-    packagingDetails: "Premium leak-proof jar for wholesale distribution.",
     highlights: ["Rich Tangy Flavor", "Perfect companion for rice & tiffins", "Handmade in small batches"]
   },
   {
@@ -81,9 +69,7 @@ export const PRODUCTS = [
     category: "Biscuits",
     weight: "400g",
     price: 220,
-    wholesalePricePerKg: 440,
     description: "Soft and crunchy bakery biscuits filled with delicious fruity flavor. A perfect snack for tea time and suitable for the whole family.",
-    popular: true,
     badge: "Bakery Fresh",
     imageType: "biscuit",
     availability: "In Stock (Bakery Fresh)",
@@ -91,7 +77,6 @@ export const PRODUCTS = [
     storage: "Store in a cool dry place away from direct sunlight. Keep the container tightly closed after opening.",
     shelfLife: "Best before 6 months from the date of packing.",
     bestServedWith: "Hot tea, coffee, milk, and evening snacks.",
-    packagingDetails: "Hygienically wrapped and boxed for bakery-fresh crunch.",
     highlights: ["Loaded with Tutti-Frutti", "Melt-in-mouth buttery texture", "Baked fresh daily"]
   },
   {
@@ -100,9 +85,7 @@ export const PRODUCTS = [
     category: "Biscuits",
     weight: "400g",
     price: 240,
-    wholesalePricePerKg: 480,
     description: "Premium butter biscuits enriched with crunchy cashew pieces. Freshly baked with high-quality ingredients for a rich taste.",
-    popular: true,
     badge: "Top Rated",
     imageType: "biscuit",
     availability: "In Stock (Bakery Fresh)",
@@ -110,7 +93,6 @@ export const PRODUCTS = [
     storage: "Store in a cool dry place away from direct sunlight. Keep the container tightly closed after opening.",
     shelfLife: "Best before 6 months from the date of packing.",
     bestServedWith: "Evening tea, festive gatherings, and guest hospitality.",
-    packagingDetails: "Sealed pack preserving crunch and rich aroma.",
     highlights: ["Generous Cashew Chunks", "Rich Bakery Butter", "Hyderabad Specialty"]
   },
   {
@@ -119,9 +101,7 @@ export const PRODUCTS = [
     category: "Biscuits",
     weight: "400g",
     price: 240,
-    wholesalePricePerKg: 480,
     description: "Authentic Hyderabadi Osmania biscuits made using the traditional bakery recipe. Lightly sweet and slightly salty, making them the perfect companion for tea.",
-    popular: true,
     badge: "Hyderabad Special",
     imageType: "biscuit",
     availability: "In Stock (Bakery Fresh)",
@@ -129,7 +109,6 @@ export const PRODUCTS = [
     storage: "Store in a cool dry place away from direct sunlight. Keep the container tightly closed after opening.",
     shelfLife: "Best before 6 months from the date of packing.",
     bestServedWith: "Hot Irani Chai and morning tea.",
-    packagingDetails: "Traditional wholesale bakery box packaging.",
     highlights: ["Royal Hyderabad Heritage", "Perfect balance of sweet & salt", "Ideal with hot Irani Chai"]
   },
   {
@@ -138,9 +117,7 @@ export const PRODUCTS = [
     category: "Biscuits",
     weight: "300g",
     price: 270,
-    wholesalePricePerKg: 540,
     description: "Premium pistachio biscuits baked with carefully selected ingredients to provide a rich nutty flavor and crispy texture.",
-    popular: false,
     badge: "Royal",
     imageType: "biscuit",
     availability: "In Stock (Bakery Fresh)",
@@ -148,7 +125,6 @@ export const PRODUCTS = [
     storage: "Store in a cool dry place away from direct sunlight. Keep the container tightly closed after opening.",
     shelfLife: "Best before 6 months from the date of packing.",
     bestServedWith: "Coffee, premium tea time, and gifting.",
-    packagingDetails: "Protective packaging ensuring zero breakage during transit.",
     highlights: ["Topped with Real Pistachios", "Subtle Cardamom Infusion", "Premium Gift Quality"]
   },
   {
@@ -157,9 +133,7 @@ export const PRODUCTS = [
     category: "Biscuits",
     weight: "300g",
     price: 290,
-    wholesalePricePerKg: 580,
     description: "Delicious almond biscuits prepared using premium almonds and high-quality butter for a rich and satisfying taste.",
-    popular: false,
     badge: "Premium",
     imageType: "biscuit",
     availability: "In Stock (Bakery Fresh)",
@@ -167,7 +141,6 @@ export const PRODUCTS = [
     storage: "Store in a cool dry place away from direct sunlight. Keep the container tightly closed after opening.",
     shelfLife: "Best before 6 months from the date of packing.",
     bestServedWith: "Hot milk, tea, and special snacks.",
-    packagingDetails: "Freshness-locked airtight tray packaging.",
     highlights: ["Rich Almond Flavor", "Topped with crunchy almond flakes", "Baked with pure butter"]
   },
   {
@@ -176,9 +149,7 @@ export const PRODUCTS = [
     category: "Ghee & Oils",
     weight: "250g",
     price: 199,
-    wholesalePricePerKg: 760,
     description: "Premium quality pure ghee made from carefully selected ingredients. Ideal for cooking, sweets, traditional recipes, and everyday use.",
-    popular: true,
     badge: "100% Pure",
     imageType: "ghee",
     availability: "In Stock (Ready for Bulk Dispatch)",
@@ -186,7 +157,6 @@ export const PRODUCTS = [
     storage: "Store in a cool dry place away from direct sunlight. Keep the container tightly closed after opening. Do not refrigerate. Use a dry spoon.",
     shelfLife: "Best before 9 months from the date of packing.",
     bestServedWith: "Dal tadka, hot rotis, biryani, sweets, and traditional cooking.",
-    packagingDetails: "Food-grade tamper-evident jar designed for wholesale safety.",
     highlights: ["Traditional Bilona Method", "Golden Granular Texture", "Rich Authentic Aroma & Taste"]
   }
 ];
@@ -194,22 +164,15 @@ export const PRODUCTS = [
 export const BUSINESS_INFO = {
   name: "Taher Ali Enterprises",
   tagline: "Premium Wholesale Food Products",
-  description: "Wholesale food supplier based at Alija Kotla, Charminar, Hyderabad — serving all of Hyderabad, Telangana.",
+  description: "Wholesale food supplier based at Aliabad Kotla, Charminar, Hyderabad — serving all of Hyderabad, Telangana.",
   owner: "Mohammed Abdullah Bilal",
   phone: "6305486808",
   whatsappNumber: "916305486808",
-  location: "Alija Kotla, Charminar, Hyderabad",
+  location: "Aliabad Kotla, Charminar, Hyderabad",
   serviceArea: "All over Hyderabad & Telangana",
   businessHours: "Monday - Saturday: 8:00 AM - 8:00 PM (Sunday Open for Bulk Dispatch)",
   established: "2015",
-  googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Alija+Kotla+Charminar+Hyderabad",
+  googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Aliabad+Kotla+Charminar+Hyderabad",
   freeDeliveryRadiusKm: 3,
   deliveryChargeOutside: 50
 };
-
-export const BULK_TIERS = [
-  { minUnits: 1, discountPercent: 0, label: "Retail / Small Pack" },
-  { minUnits: 10, discountPercent: 5, label: "Bulk Tier 1 (10+ units: 5% off)" },
-  { minUnits: 50, discountPercent: 12, label: "Wholesale Tier 2 (50+ units: 12% off)" },
-  { minUnits: 200, discountPercent: 20, label: "Super Stockist Tier (200+ units: 20% off)" }
-];

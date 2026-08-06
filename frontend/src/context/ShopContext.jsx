@@ -1,23 +1,26 @@
 import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from "react";
 import { toast } from "sonner";
-import { PRODUCTS, BULK_TIERS, BUSINESS_INFO } from "../mock";
+import { PRODUCTS, BUSINESS_INFO } from "../mock";
 
 const ShopContext = createContext(null);
 
 const RECENT_KEY = "tae_recent_viewed";
 const DARK_KEY = "tae_dark_mode";
-const CART_KEY = "tae_cart";
+const CART_KEY = "tae_cart_v2";
 
 export function ShopProvider({ children }) {
   const [darkMode, setDarkMode] = useState(() => {
     try { return localStorage.getItem(DARK_KEY) === "true"; } catch { return false; }
   });
   const [cart, setCart] = useState(() => {
-    try { return JSON.parse(localStorage.getItem(CART_KEY) || "[]"); } catch { return []; }
+    try {
+      const parsed = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+      // Ensure legacy items get a type
+      return parsed.map(it => ({ type: it.type || "retail", ...it }));
+    } catch { return []; }
   });
   const [cartOpen, setCartOpen] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
-  const [bulkCalculatorOpen, setBulkCalculatorOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [recentlyViewed, setRecentlyViewed] = useState(() => {
     try { return JSON.parse(localStorage.getItem(RECENT_KEY) || "[]"); } catch { return []; }
@@ -45,7 +48,7 @@ export function ShopProvider({ children }) {
           item.id === product.id ? { ...item, quantity: item.quantity + qty } : item
         );
       }
-      return [...prev, { ...product, quantity: qty }];
+      return [...prev, { type: "retail", ...product, quantity: qty }];
     });
     toast.success("Added to Cart", {
       description: `${qty}× ${product.name}`,
@@ -83,10 +86,14 @@ export function ShopProvider({ children }) {
   const totals = useMemo(() => {
     const totalItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     const subtotalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const applicableTier = BULK_TIERS.slice().reverse().find(t => totalItemsCount >= t.minUnits) || BULK_TIERS[0];
-    const discountAmount = Math.round((subtotalPrice * applicableTier.discountPercent) / 100);
-    const grandTotal = subtotalPrice - discountAmount;
-    return { totalItemsCount, subtotalPrice, applicableTier, discountAmount, grandTotal };
+    return { totalItemsCount, subtotalPrice, grandTotal: subtotalPrice };
+  }, [cart]);
+
+  const groupedCart = useMemo(() => {
+    return {
+      retail: cart.filter(i => (i.type || "retail") === "retail"),
+      wholesale: cart.filter(i => i.type === "wholesale"),
+    };
   }, [cart]);
 
   const recentlyViewedProducts = useMemo(() =>
@@ -95,16 +102,14 @@ export function ShopProvider({ children }) {
 
   const value = {
     darkMode, setDarkMode,
-    cart, setCart,
+    cart, setCart, groupedCart,
     cartOpen, setCartOpen,
     checkoutOpen, setCheckoutOpen,
-    bulkCalculatorOpen, setBulkCalculatorOpen,
     mobileMenuOpen, setMobileMenuOpen,
     addToCart, updateQuantity, removeItem, clearCart,
     trackRecentlyViewed, recentlyViewedProducts,
     ...totals,
     BUSINESS_INFO,
-    BULK_TIERS,
   };
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
