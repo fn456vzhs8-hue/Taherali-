@@ -106,6 +106,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .animate-slideInRight { animation: slideInRight 0.3s ease-out; }
 
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0.4; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-slideUp { animation: slideUp 0.32s cubic-bezier(0.32, 0.72, 0, 1); }
+
 /* Skeleton shimmer */
 @keyframes shimmer {
   0% { background-position: -400px 0; }

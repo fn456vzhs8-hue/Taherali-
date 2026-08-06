@@ -1,12 +1,12 @@
 import React, { useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  Search, ArrowLeft, Home as HomeIcon, Package, FileText, MessageCircle,
-  ChevronRight, ArrowUpDown, X, ChevronDown, Filter, Copy
+  Search, ArrowLeft, Home as HomeIcon, Package, ShoppingCart, MessageCircle,
+  ChevronRight, ArrowUpDown, X, ChevronDown, Filter
 } from "lucide-react";
-import { toast } from "sonner";
 import { WHOLESALE_PRODUCTS, WHOLESALE_CATEGORIES } from "../data/wholesaleProducts";
 import { useShop } from "../context/ShopContext";
+import WholesaleOrderDialog from "../components/WholesaleOrderDialog";
 
 const SORT_OPTIONS = [
   { key: "name", label: "Name (A-Z)" },
@@ -24,6 +24,7 @@ export default function WholesaleProductsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [sortKey, setSortKey] = useState("name");
   const [showFilters, setShowFilters] = useState(false);
+  const [orderProduct, setOrderProduct] = useState(null);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -54,21 +55,14 @@ export default function WholesaleProductsPage() {
     return counts;
   }, []);
 
-  const buildQuoteMessage = (p) => {
+  const buildRetailEnquiryMessage = (p) => {
     return encodeURIComponent(
-      `*QUOTE REQUEST — TAHER ALI ENTERPRISES*\n\n` +
-      `Hello, I would like to request a wholesale quote for the following product:\n\n` +
+      `Hello,\n\n` +
+      `I am interested in purchasing this product for retail use.\n\n` +
       `📦 *Product:* ${p.name}\n` +
-      `⚖️ *Weight:* ${p.weight}\n` +
-      `🏷️ *MRP:* ₹${p.mrp}\n\n` +
-      `Please share your best wholesale price, minimum order quantity, and delivery timelines.\n\n` +
+      `⚖️ *Weight:* ${p.weight}\n\n` +
+      `Please let me know the nearest retailer or how I can purchase this item.\n\n` +
       `Thank you.`
-    );
-  };
-
-  const buildChatMessage = (p) => {
-    return encodeURIComponent(
-      `Hello Taher Ali Enterprises, I am interested in *${p.name}* (${p.weight}, MRP ₹${p.mrp}). Could you please share more details?`
     );
   };
 
@@ -214,12 +208,12 @@ export default function WholesaleProductsPage() {
       </div>
 
       {/* DESKTOP TABLE HEADER */}
-      <div className="hidden lg:grid grid-cols-[minmax(0,3fr)_100px_100px_minmax(0,4fr)_260px] gap-4 px-5 py-3 rounded-xl bg-[#2C3E1F] text-[#F5F1E4] text-xs font-bold uppercase tracking-wider sticky top-20 z-20 shadow-md">
+      <div className="hidden lg:grid grid-cols-[minmax(0,2.6fr)_100px_100px_minmax(0,3.4fr)_320px] gap-4 px-5 py-3 rounded-xl bg-[#2C3E1F] text-[#F5F1E4] text-xs font-bold uppercase tracking-wider sticky top-20 z-20 shadow-md">
         <div>Product Name</div>
         <div className="text-center">Weight</div>
         <div className="text-center">MRP</div>
         <div>Description</div>
-        <div className="text-center">Actions</div>
+        <div className="text-center">Order Options</div>
       </div>
 
       {/* PRODUCT LIST */}
@@ -237,8 +231,8 @@ export default function WholesaleProductsPage() {
               key={p.id}
               product={p}
               index={idx}
-              buildQuoteMessage={buildQuoteMessage}
-              buildChatMessage={buildChatMessage}
+              onOrderWholesale={() => setOrderProduct(p)}
+              buildRetailEnquiryMessage={buildRetailEnquiryMessage}
               whatsappNumber={BUSINESS_INFO.whatsappNumber}
             />
           ))}
@@ -260,22 +254,23 @@ export default function WholesaleProductsPage() {
           <MessageCircle className="w-4 h-4" /> WhatsApp: {BUSINESS_INFO.phone}
         </a>
       </div>
+
+      {/* WHOLESALE ORDER DIALOG */}
+      <WholesaleOrderDialog
+        product={orderProduct}
+        onClose={() => setOrderProduct(null)}
+        whatsappNumber={BUSINESS_INFO.whatsappNumber}
+      />
     </div>
   );
 }
 
-function WholesaleRow({ product, index, buildQuoteMessage, buildChatMessage, whatsappNumber }) {
-  const quoteUrl = `https://wa.me/${whatsappNumber}?text=${buildQuoteMessage(product)}`;
-  const chatUrl = `https://wa.me/${whatsappNumber}?text=${buildChatMessage(product)}`;
-
-  const handleCopy = () => {
-    const text = `${product.name} | ${product.weight} | MRP ₹${product.mrp}`;
-    navigator.clipboard.writeText(text).then(() => toast.success("Product line copied"));
-  };
+function WholesaleRow({ product, index, onOrderWholesale, buildRetailEnquiryMessage, whatsappNumber }) {
+  const retailUrl = `https://wa.me/${whatsappNumber}?text=${buildRetailEnquiryMessage(product)}`;
 
   return (
     <div
-      className={`grid grid-cols-1 lg:grid-cols-[minmax(0,3fr)_100px_100px_minmax(0,4fr)_260px] gap-4 px-4 lg:px-5 py-4 rounded-xl border border-[#556B2F]/15 items-start lg:items-center transition-all hover:border-[#D4AF37] hover:shadow-md ${index % 2 === 0 ? 'bg-white dark:bg-[#1e2a1a]' : 'bg-[#F4EEDD]/50 dark:bg-[#243020]/60'}`}
+      className={`grid grid-cols-1 lg:grid-cols-[minmax(0,2.6fr)_100px_100px_minmax(0,3.4fr)_320px] gap-4 px-4 lg:px-5 py-4 rounded-xl border border-[#556B2F]/15 items-start lg:items-center transition-all hover:border-[#D4AF37] hover:shadow-md ${index % 2 === 0 ? 'bg-white dark:bg-[#1e2a1a]' : 'bg-[#F4EEDD]/50 dark:bg-[#243020]/60'}`}
       data-testid={`wholesale-row-${product.id}`}
     >
       {/* Product Name + Icon + Categories */}
@@ -315,32 +310,23 @@ function WholesaleRow({ product, index, buildQuoteMessage, buildChatMessage, wha
         </p>
       </div>
 
-      {/* Actions */}
-      <div className="flex flex-wrap lg:flex-nowrap gap-2 lg:justify-end lg:items-center">
-        <a
-          href={quoteUrl}
-          target="_blank" rel="noopener noreferrer"
-          className="flex-1 lg:flex-initial inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[#556B2F] hover:bg-[#2C3E1F] text-white font-semibold text-xs shadow-sm transition-colors"
-          data-testid={`wholesale-quote-btn-${product.id}`}
-        >
-          <FileText className="w-3.5 h-3.5" /> Request Quote
-        </a>
-        <a
-          href={chatUrl}
-          target="_blank" rel="noopener noreferrer"
-          className="flex-1 lg:flex-initial inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold text-xs shadow-sm transition-colors"
-          data-testid={`wholesale-whatsapp-btn-${product.id}`}
-        >
-          <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
-        </a>
+      {/* Actions: Order Wholesale + Retail Enquiry (larger, stacked) */}
+      <div className="flex flex-col gap-2 w-full">
         <button
-          onClick={handleCopy}
-          className="p-2 rounded-lg border border-[#556B2F]/30 text-[#556B2F] dark:text-[#D4AF37] hover:bg-[#556B2F]/10 transition-colors"
-          title="Copy product line"
-          data-testid={`wholesale-copy-btn-${product.id}`}
+          onClick={onOrderWholesale}
+          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#556B2F] hover:bg-[#2C3E1F] text-white font-bold text-sm shadow-md transition-all transform active:scale-95"
+          data-testid={`wholesale-order-btn-${product.id}`}
         >
-          <Copy className="w-3.5 h-3.5" />
+          <ShoppingCart className="w-4 h-4" /> Order Wholesale
         </button>
+        <a
+          href={retailUrl}
+          target="_blank" rel="noopener noreferrer"
+          className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-[#243020] border-2 border-green-600 text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-950/20 font-semibold text-xs sm:text-sm transition-colors"
+          data-testid={`wholesale-retail-btn-${product.id}`}
+        >
+          <MessageCircle className="w-4 h-4" /> Looking for Retail?
+        </a>
       </div>
     </div>
   );

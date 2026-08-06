@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   ShoppingBag, Plus, Minus, ZoomIn, CheckCircle2, ChevronRight, ArrowLeft,
-  Share2, MessageCircle, Clock, Package
+  Share2, MessageCircle, Clock, Package, Info
 } from "lucide-react";
 import { PRODUCTS } from "../mock";
 import { useShop } from "../context/ShopContext";
@@ -122,6 +122,23 @@ export default function ProductDetailPage() {
                   {emoji}
                 </div>
               ))}
+            </div>
+
+            {/* PRODUCT IMAGE NOTICE (below image, above description) */}
+            <div
+              className="flex items-start gap-3 p-4 sm:p-5 rounded-2xl bg-[#F4EEDD] dark:bg-[#243020] border border-[#556B2F]/30 dark:border-[#D4AF37]/25 shadow-sm"
+              role="note"
+              data-testid="product-image-notice"
+            >
+              <div className="shrink-0 w-9 h-9 rounded-full bg-[#556B2F]/15 dark:bg-[#D4AF37]/20 text-[#556B2F] dark:text-[#D4AF37] flex items-center justify-center">
+                <Info className="w-5 h-5" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-bold text-sm text-[#2C3E1F] dark:text-[#F5F1E4] font-serif">Product Image Notice</h4>
+                <p className="text-xs sm:text-[13px] text-gray-700 dark:text-[#d9d3c1] leading-relaxed">
+                  Images are provided for illustration and marketing purposes only. The actual product may vary slightly in appearance, packaging, color, shape, or decoration depending on the manufacturing batch. Product quality, weight, and specifications remain as described.
+                </p>
+              </div>
             </div>
           </div>
 

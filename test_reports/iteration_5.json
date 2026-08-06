@@ -1,0 +1,40 @@
+{
+  "summary": "Frontend-only testing of new Wholesale Ordering system and Retail Product Image Notice. All 14 requested test cases passed. Old testids (wholesale-quote-btn-, wholesale-whatsapp-btn-, wholesale-copy-btn-) are fully removed. New wholesale-order-btn-* opens a fully working dialog with presets, custom qty +/-, min-15 validation, live estimated total, and Proceed to WhatsApp. wholesale-retail-btn-* is a correct wa.me anchor with retail enquiry message. Product Image Notice appears only on /products/:id (not on /wholesale). Mobile bottom-sheet with handle bar renders at 375x812.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "/wholesale sort <select>", "issues": ["Pre-existing React hydration warning: a <span> instrumentation wrapper is being rendered as a child of <option> inside the SORT_OPTIONS select. Not caused by this iteration but visible in console. Consider rendering plain text in <option> or suppressing the dev-instrumentation wrapper for option children."]}
+    ]
+  },
+  "test_report_links": ["/app/test_reports/iteration_5.json"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "WholesaleOrderDialog.jsx handles product=null cleanly, prevents body scroll, and correctly resets on close via product prop. Good.",
+    "Custom qty input allows 1..14 which correctly triggers min warning + disables Proceed. Good.",
+    "Estimated total uses toLocaleString('en-IN') — matches ₹ formatting used elsewhere.",
+    "Minor: WholesaleOrderDialog does not reset mode/customQty when product changes; if user closes and reopens for a different product, previous selections persist. Consider useEffect resetting mode=20, customQty=50 when product changes. Not a blocker.",
+    "Minor: Backdrop close and Escape key — backdrop click works; Escape key not bound. Optional enhancement.",
+    "Pre-existing: dev-instrumentation wrapper injects <span> inside <option> causing hydration warning (unrelated to this task)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Wholesale ordering dialog + Product Image Notice implementation verified fully. 106 wholesale rows, each with wholesale-order-btn-<id> and wholesale-retail-btn-<id>. Dialog testids: wholesale-order-dialog, wholesale-dialog-close, wholesale-qty-preset-20/50/100/custom, wholesale-custom-qty-block, wholesale-custom-qty-input/minus/plus, wholesale-min-qty-warning, wholesale-estimated-total, wholesale-proceed-whatsapp-btn. Product Image Notice testid: product-image-notice (only on /products/:id).",
+  "verified_flows": [
+    "Old testids removed (quote/whatsapp/copy = 0 count)",
+    "Order Wholesale opens dialog; default qty=20; Total=20xMRP",
+    "Presets 50 and 100 update total correctly",
+    "Custom preset shows +/- input + 15/25/75/200 shortcuts",
+    "qty=10 shows red warning + disables Proceed",
+    "qty=25 hides warning + enables Proceed",
+    "+/- buttons increment/decrement by 1",
+    "Retail button is anchor with href starting https://wa.me/916305486808?text=",
+    "Close via X, Cancel, and backdrop all dismiss dialog",
+    "Product Image Notice present on /products/p1, absent on /wholesale",
+    "Mobile 375x812: bottom sheet with handle bar renders correctly"
+  ]
+}
