@@ -1,16 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ShoppingBag, Plus, Minus, ZoomIn } from "lucide-react";
+import { ShoppingBag, Plus, Minus, ZoomIn, Check } from "lucide-react";
 import { useShop } from "../context/ShopContext";
+import { flyToCart } from "../utils/flyToCart";
 
 export default function ProductCard({ product }) {
-  const { addToCart } = useShop();
+  const { addToCart, updateQuantity, cart } = useShop();
   const navigate = useNavigate();
-  const [qty, setQty] = useState(1);
+
+  const inCartItem = cart.find(item => item.id === product.id);
+  const inCart = !!inCartItem;
+  const cartQty = inCartItem ? inCartItem.quantity : 0;
 
   const emoji = product.imageType === 'pickle' ? '🥭' : product.imageType === 'biscuit' ? '🍪' : '🧈';
 
   const onSelect = () => navigate(`/products/${product.id}`);
+
+  const handleAdd = (e) => {
+    e.stopPropagation();
+    flyToCart(e.currentTarget);
+    addToCart(product, 1);
+  };
+
+  const handleInc = (e) => {
+    e.stopPropagation();
+    flyToCart(e.currentTarget);
+    updateQuantity(product.id, 1);
+  };
+
+  const handleDec = (e) => {
+    e.stopPropagation();
+    updateQuantity(product.id, -1); // auto-removes at 0
+  };
 
   return (
     <div
@@ -37,6 +58,12 @@ export default function ProductCard({ product }) {
               <ZoomIn className="w-3.5 h-3.5" /> View Details
             </span>
           </div>
+
+          {inCart && (
+            <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-600 text-white text-[10px] font-bold shadow" data-testid={`in-cart-badge-${product.id}`}>
+              <Check className="w-3 h-3" /> {cartQty} in cart
+            </span>
+          )}
         </div>
 
         <h3 className="font-bold text-lg font-serif text-[#2C3E1F] dark:text-[#F5F1E4] mb-1 group-hover:text-[#556B2F] dark:group-hover:text-[#D4AF37] transition-colors">
@@ -55,24 +82,37 @@ export default function ProductCard({ product }) {
           <span className="text-lg font-extrabold text-[#556B2F] dark:text-[#D4AF37]" data-testid={`product-price-${product.id}`}>₹{product.price}</span>
         </div>
 
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-1 bg-gray-100 dark:bg-[#243020] rounded-xl p-1">
-            <button onClick={() => setQty(Math.max(1, qty - 1))} className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-[#2a3822] transition-colors" data-testid={`qty-minus-${product.id}`}>
-              <Minus className="w-3.5 h-3.5" />
+        {inCart ? (
+          <div className="flex items-center justify-between gap-2 bg-[#556B2F]/10 dark:bg-[#D4AF37]/10 rounded-xl p-1.5 border border-[#556B2F]/30 animate-fadeIn" data-testid={`card-qty-controls-${product.id}`}>
+            <button
+              onClick={handleDec}
+              className="w-10 h-10 rounded-lg bg-white dark:bg-[#243020] hover:bg-[#556B2F] hover:text-white flex items-center justify-center transition-colors shadow-sm"
+              data-testid={`card-qty-minus-${product.id}`}
+              aria-label="Decrease quantity"
+            >
+              <Minus className="w-4 h-4" />
             </button>
-            <span className="w-8 text-center font-bold text-sm" data-testid={`qty-val-${product.id}`}>{qty}</span>
-            <button onClick={() => setQty(qty + 1)} className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-[#2a3822] transition-colors" data-testid={`qty-plus-${product.id}`}>
-              <Plus className="w-3.5 h-3.5" />
+            <span className="font-extrabold text-lg text-[#2C3E1F] dark:text-[#F5F1E4] flex-1 text-center" data-testid={`card-qty-value-${product.id}`}>
+              {cartQty}
+            </span>
+            <button
+              onClick={handleInc}
+              className="w-10 h-10 rounded-lg bg-white dark:bg-[#243020] hover:bg-[#556B2F] hover:text-white flex items-center justify-center transition-colors shadow-sm"
+              data-testid={`card-qty-plus-${product.id}`}
+              aria-label="Increase quantity"
+            >
+              <Plus className="w-4 h-4" />
             </button>
           </div>
+        ) : (
           <button
-            onClick={() => { addToCart(product, qty); setQty(1); }}
-            className="flex-1 py-2.5 px-3 rounded-xl bg-[#556B2F] hover:bg-[#2C3E1F] text-white font-semibold text-xs shadow-md flex items-center justify-center gap-1.5 transition-all transform active:scale-95"
+            onClick={handleAdd}
+            className="w-full py-3 px-3 rounded-xl bg-[#556B2F] hover:bg-[#2C3E1F] text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all transform active:scale-95"
             data-testid={`add-to-cart-${product.id}`}
           >
-            <ShoppingBag className="w-3.5 h-3.5" /> Quick Add
+            <ShoppingBag className="w-4 h-4" /> Add to Cart
           </button>
-        </div>
+        )}
       </div>
     </div>
   );

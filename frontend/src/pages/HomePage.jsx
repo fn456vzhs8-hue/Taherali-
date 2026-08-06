@@ -400,7 +400,7 @@ export default function HomePage() {
             <div className="lg:col-span-7 glass-panel p-4 rounded-3xl shadow-xl flex flex-col">
               <div className="flex justify-between items-center mb-4 px-4 pt-2">
                 <h4 className="font-bold text-base flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#556B2F] dark:text-[#D4AF37]" /> Hyderabad Headquarters & Warehouse
+                  <MapPin className="w-4 h-4 text-[#556B2F] dark:text-[#D4AF37]" /> Alija Kotla, Charminar, Hyderabad
                 </h4>
                 <span className="text-xs bg-[#556B2F]/15 text-[#556B2F] dark:text-[#D4AF37] px-3 py-1 rounded-full font-medium">Telangana, India</span>
               </div>
@@ -410,9 +410,9 @@ export default function HomePage() {
                 </div>
                 <h5 className="text-xl font-bold font-serif mb-2">Taher Ali Enterprises</h5>
                 <p className="text-sm text-gray-600 dark:text-[#d9d3c1] max-w-md mb-6">
-                  Serving wholesale food product distribution across Hyderabad and surrounding districts with prompt dispatch.
+                  Located at <strong>Alija Kotla, Charminar, Hyderabad</strong>. Serving wholesale food product distribution across Hyderabad and surrounding districts with prompt dispatch.
                 </p>
-                <a href="https://maps.google.com/?q=Hyderabad+Telangana" target="_blank" rel="noopener noreferrer"
+                <a href={BUSINESS_INFO.googleMapsUrl} target="_blank" rel="noopener noreferrer"
                   className="px-5 py-2.5 rounded-xl bg-[#2C3E1F] text-white text-sm font-semibold flex items-center gap-2 shadow-md hover:bg-[#556B2F] transition-colors">
                   Open in Google Maps <ExternalLink className="w-4 h-4" />
                 </a>

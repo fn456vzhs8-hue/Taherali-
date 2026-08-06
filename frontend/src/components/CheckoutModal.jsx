@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { X, MessageCircle } from "lucide-react";
+import { X, MessageCircle, MapPin, CheckCircle2, Truck } from "lucide-react";
 import { toast } from "sonner";
 import { useShop } from "../context/ShopContext";
 
@@ -45,6 +45,7 @@ export default function CheckoutModal() {
       msg += `🏷️ *Bulk Discount (${applicableTier.discountPercent}%):* -₹${discountAmount}\n`;
     }
     msg += `🌟 *Grand Total:* ₹${grandTotal}\n`;
+    msg += `\n📍 *Delivery Note:* Free delivery within 3 km of Alija Kotla, Charminar, Hyderabad. ₹50 charge for locations beyond 3 km.\n`;
     msg += `\n_Generated via Taher Ali Enterprises B2B Portal_`;
 
     const encodedMsg = encodeURIComponent(msg);
@@ -132,6 +133,36 @@ export default function CheckoutModal() {
             <p className="text-xs text-gray-500 dark:text-[#c9d1c1] pt-1">
               * Clicking Place Order will automatically open WhatsApp with the complete order formatted for Taher Ali Enterprises ({BUSINESS_INFO.phone}).
             </p>
+          </div>
+
+          {/* DELIVERY INFORMATION NOTICE */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#1e2a1a] border border-[#556B2F]/30" data-testid="delivery-info-box">
+            <div className="flex items-start gap-3">
+              <div className="shrink-0 w-10 h-10 rounded-full bg-[#556B2F]/15 dark:bg-[#D4AF37]/20 text-[#556B2F] dark:text-[#D4AF37] flex items-center justify-center">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div className="min-w-0 space-y-2 flex-1">
+                <h4 className="font-bold text-sm text-[#2C3E1F] dark:text-[#F5F1E4] font-serif">Delivery Information</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div className="rounded-xl bg-green-50 dark:bg-green-950/25 border border-green-200 dark:border-green-900/50 px-3 py-2.5">
+                    <p className="text-xs font-bold text-green-700 dark:text-green-400 flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4" /> Free Delivery
+                    </p>
+                    <p className="text-[11px] text-gray-700 dark:text-[#d9d3c1] leading-snug mt-0.5">
+                      Free within <strong>3 km</strong> of Alija Kotla, Charminar, Hyderabad.
+                    </p>
+                  </div>
+                  <div className="rounded-xl bg-[#F4EEDD] dark:bg-[#243020] border border-[#556B2F]/25 px-3 py-2.5">
+                    <p className="text-xs font-bold text-[#8B5A2B] dark:text-[#D4AF37] flex items-center gap-1.5">
+                      <Truck className="w-4 h-4" /> Outside 3 km
+                    </p>
+                    <p className="text-[11px] text-gray-700 dark:text-[#d9d3c1] leading-snug mt-0.5">
+                      Orders beyond 3 km will have a <strong>₹50 delivery charge</strong>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="pt-4 flex gap-4">

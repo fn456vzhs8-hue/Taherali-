@@ -198,10 +198,13 @@ export const BUSINESS_INFO = {
   owner: "Mohammed Abdullah Bilal",
   phone: "6305486808",
   whatsappNumber: "916305486808",
-  location: "Hyderabad, Telangana",
+  location: "Alija Kotla, Charminar, Hyderabad",
   serviceArea: "All over Hyderabad & Telangana",
   businessHours: "Monday - Saturday: 8:00 AM - 8:00 PM (Sunday Open for Bulk Dispatch)",
-  established: "2015"
+  established: "2015",
+  googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Alija+Kotla+Charminar+Hyderabad",
+  freeDeliveryRadiusKm: 3,
+  deliveryChargeOutside: 50
 };
 
 export const BULK_TIERS = [

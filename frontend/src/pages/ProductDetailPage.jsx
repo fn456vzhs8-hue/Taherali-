@@ -7,6 +7,7 @@ import {
 import { PRODUCTS } from "../mock";
 import { useShop } from "../context/ShopContext";
 import { toast } from "sonner";
+import { flyToCart } from "../utils/flyToCart";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
@@ -308,7 +309,7 @@ export default function ProductDetailPage() {
             </div>
 
             <button
-              onClick={() => addToCart(product, qty)}
+              onClick={(e) => { flyToCart(e.currentTarget); addToCart(product, qty); }}
               className="px-3 sm:px-4 py-2 rounded-lg bg-[#556B2F] hover:bg-[#2C3E1F] text-white font-bold text-xs sm:text-sm shadow-md flex items-center gap-1.5 transition-all transform active:scale-95"
               data-testid="sticky-add-to-cart-btn"
             >

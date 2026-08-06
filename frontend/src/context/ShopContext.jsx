@@ -47,7 +47,10 @@ export function ShopProvider({ children }) {
       }
       return [...prev, { ...product, quantity: qty }];
     });
-    toast.success(`Added ${qty}x ${product.name} to wholesale cart`);
+    toast.success("Added to Cart", {
+      description: `${qty}× ${product.name}`,
+      duration: 2000,
+    });
   }, []);
 
   const updateQuantity = useCallback((id, delta) => {
