@@ -25,6 +25,11 @@ export default function CheckoutModal() {
 
   if (!checkoutOpen) return null;
 
+  const closeAndReopenCart = () => {
+    setCheckoutOpen(false);
+    setCartOpen(true);
+  };
+
   const setField = (key, val) => {
     setForm(prev => ({ ...prev, [key]: val }));
     if (errors[key]) setErrors(prev => ({ ...prev, [key]: null }));
@@ -109,19 +114,27 @@ export default function CheckoutModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto" data-testid="checkout-modal">
-      <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setCheckoutOpen(false)} />
+    <div
+      className="fixed inset-0 z-50 overflow-y-auto overscroll-contain"
+      data-testid="checkout-modal"
+      onClick={closeAndReopenCart}
+    >
+      <div className="fixed inset-0 bg-black/60 backdrop-blur-sm pointer-events-none" />
 
-      <div className="relative glass-panel bg-white dark:bg-[#1e2a1a] text-[#2C3E1F] dark:text-[#F5F1E4] rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-[#556B2F]/30 z-10 my-8 animate-fadeIn">
-        <div className="flex justify-between items-center mb-6 border-b border-[#556B2F]/20 pb-4">
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold font-serif">Complete Your Order</h3>
-            <p className="text-xs text-gray-500 dark:text-[#c9d1c1]">Order dispatched via WhatsApp to {BUSINESS_INFO.phone}</p>
+      <div className="relative min-h-full flex items-start sm:items-center justify-center p-3 sm:p-6">
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="relative glass-panel bg-white dark:bg-[#1e2a1a] text-[#2C3E1F] dark:text-[#F5F1E4] rounded-2xl sm:rounded-3xl max-w-2xl w-full p-5 sm:p-8 shadow-2xl border border-[#556B2F]/30 my-4 sm:my-8 animate-fadeIn"
+        >
+          <div className="flex justify-between items-center mb-6 border-b border-[#556B2F]/20 pb-4">
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold font-serif">Complete Your Order</h3>
+              <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">Order dispatched via WhatsApp to {BUSINESS_INFO.phone}</p>
+            </div>
+            <button onClick={closeAndReopenCart} className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-[#2a3822]" aria-label="Close" data-testid="checkout-close-btn">
+              <X className="w-6 h-6" />
+            </button>
           </div>
-          <button onClick={() => setCheckoutOpen(false)} className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-[#2a3822]" aria-label="Close">
-            <X className="w-6 h-6" />
-          </button>
-        </div>
 
         <form onSubmit={handleSubmit} className="space-y-5" noValidate>
           {/* Customer Info */}
@@ -207,7 +220,7 @@ export default function CheckoutModal() {
                     <p className="text-xs font-bold text-green-700 dark:text-green-400 flex items-center gap-1.5">
                       <CheckCircle2 className="w-4 h-4" /> Free Delivery
                     </p>
-                    <p className="text-[11px] text-gray-700 dark:text-[#d9d3c1] leading-snug mt-0.5">
+                    <p className="text-[11px] text-gray-800 dark:text-[#efe9d4] leading-snug mt-0.5">
                       Available within <strong>3 km</strong> of Alijah Kotla, Charminar, Hyderabad.
                     </p>
                   </div>
@@ -215,7 +228,7 @@ export default function CheckoutModal() {
                     <p className="text-xs font-bold text-[#8B5A2B] dark:text-[#D4AF37] flex items-center gap-1.5">
                       <Truck className="w-4 h-4" /> Outside 3 km
                     </p>
-                    <p className="text-[11px] text-gray-700 dark:text-[#d9d3c1] leading-snug mt-0.5">
+                    <p className="text-[11px] text-gray-800 dark:text-[#efe9d4] leading-snug mt-0.5">
                       A delivery charge of <strong>₹50</strong> will be added.
                     </p>
                   </div>
@@ -226,8 +239,9 @@ export default function CheckoutModal() {
 
           {/* Actions */}
           <div className="pt-2 flex flex-col sm:flex-row gap-3">
-            <button type="button" onClick={() => setCheckoutOpen(false)}
-              className="sm:w-1/3 py-3 rounded-xl border border-gray-300 dark:border-[#3a4a30] font-semibold text-sm hover:bg-gray-100 dark:hover:bg-[#2a3822] transition-colors">
+            <button type="button" onClick={closeAndReopenCart}
+              className="sm:w-1/3 py-3 rounded-xl border border-gray-300 dark:border-[#3a4a30] font-semibold text-sm hover:bg-gray-100 dark:hover:bg-[#2a3822] transition-colors"
+              data-testid="checkout-back-to-cart-btn">
               Back to Cart
             </button>
             <button type="submit" disabled={submitting || cart.length === 0}
@@ -237,13 +251,14 @@ export default function CheckoutModal() {
             </button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   );
 }
 
 function inputCls(error) {
-  return `w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-[#243020] border text-sm focus:outline-none focus:ring-2 text-[#2C3E1F] dark:text-[#F5F1E4] placeholder-gray-400 dark:placeholder-[#8fa085] transition-colors ${error ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 dark:border-[#3a4a30] focus:ring-[#556B2F]'}`;
+  return `w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-[#243020] border text-sm focus:outline-none focus:ring-2 text-[#2C3E1F] dark:text-[#F5F1E4] placeholder-gray-500 dark:placeholder-[#a8b39c] transition-colors ${error ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 dark:border-[#3a4a30] focus:ring-[#556B2F]'}`;
 }
 
 function Field({ label, required, hint, error, children }) {
@@ -251,7 +266,7 @@ function Field({ label, required, hint, error, children }) {
     <label className="block space-y-1">
       <span className="text-xs font-semibold flex items-center gap-1">
         {label} {required && <span className="text-red-500">*</span>}
-        {hint && <span className="text-gray-400 font-normal">· {hint}</span>}
+        {hint && <span className="text-gray-500 dark:text-[#a8b39c] font-normal">· {hint}</span>}
       </span>
       {children}
       {error && (
@@ -267,7 +282,7 @@ function SummarySection({ title, items, testid }) {
   return (
     <div className="space-y-1" data-testid={testid}>
       <p className="text-[11px] font-bold text-[#8B5A2B] dark:text-[#D4AF37] uppercase tracking-wider">{title}</p>
-      <ul className="space-y-1 text-xs sm:text-sm text-gray-700 dark:text-[#d9d3c1]">
+      <ul className="space-y-1 text-xs sm:text-sm text-gray-800 dark:text-[#efe9d4]">
         {items.map(i => (
           <li key={i.id} className="flex justify-between gap-3">
             <span className="truncate">• {i.name} ({i.weight}) ×{i.quantity}</span>

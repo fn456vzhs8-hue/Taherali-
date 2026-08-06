@@ -54,7 +54,7 @@ export default function HomePage() {
               Premium Wholesale Food Products
             </p>
 
-            <p className="text-base sm:text-lg text-gray-700 dark:text-[#d9d3c1] max-w-xl leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-800 dark:text-[#efe9d4] max-w-xl leading-relaxed">
               Supplying quality pickles, bakery biscuits, sweets, and pure ghee across Hyderabad, Telangana. Direct from our hygienic facility at Alijah Kotla, Charminar to your retail store, restaurant, or bulk celebration.
             </p>
 
@@ -70,15 +70,15 @@ export default function HomePage() {
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-[#556B2F]/20 text-center sm:text-left">
               <div>
                 <p className="text-2xl sm:text-3xl font-extrabold text-[#2C3E1F] dark:text-[#D4AF37]">100%</p>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-[#c9d1c1]">Pure & Hygienic</p>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-[#dcd6bf]">Pure & Hygienic</p>
               </div>
               <div>
                 <p className="text-2xl sm:text-3xl font-extrabold text-[#2C3E1F] dark:text-[#D4AF37]">100+</p>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-[#c9d1c1]">Wholesale Products</p>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-[#dcd6bf]">Wholesale Products</p>
               </div>
               <div>
                 <p className="text-2xl sm:text-3xl font-extrabold text-[#2C3E1F] dark:text-[#D4AF37]">Free</p>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-[#c9d1c1]">Delivery under 3km</p>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-[#dcd6bf]">Delivery under 3km</p>
               </div>
             </div>
           </div>
@@ -94,8 +94,8 @@ export default function HomePage() {
                 <div className="w-16 h-16 rounded-xl bg-[#F4EEDD] dark:bg-[#1e2a1a] flex items-center justify-center text-2xl">🥭</div>
                 <div>
                   <h4 className="font-bold text-base">Traditional Mango Achar</h4>
-                  <p className="text-xs text-gray-500 dark:text-[#c9d1c1]">250g · Retail Pack</p>
-                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹89 <span className="text-xs font-normal text-gray-500 dark:text-[#c9d1c1]">/ unit</span></p>
+                  <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">250g · Retail Pack</p>
+                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹89 <span className="text-xs font-normal text-gray-600 dark:text-[#dcd6bf]">/ unit</span></p>
                 </div>
               </Link>
 
@@ -103,8 +103,8 @@ export default function HomePage() {
                 <div className="w-16 h-16 rounded-xl bg-[#F4EEDD] dark:bg-[#1e2a1a] flex items-center justify-center text-2xl">🍪</div>
                 <div>
                   <h4 className="font-bold text-base">Osmania Biscuit</h4>
-                  <p className="text-xs text-gray-500 dark:text-[#c9d1c1]">400g Bakery Pack</p>
-                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹240 <span className="text-xs font-normal text-gray-500 dark:text-[#c9d1c1]">/ unit</span></p>
+                  <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">400g Bakery Pack</p>
+                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹240 <span className="text-xs font-normal text-gray-600 dark:text-[#dcd6bf]">/ unit</span></p>
                 </div>
               </Link>
 
@@ -130,10 +130,10 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold font-serif text-[#2C3E1F] dark:text-[#F5F1E4]">
               Committed to Purity, Tradition & Trust
             </h2>
-            <p className="text-base text-gray-700 dark:text-[#d9d3c1] leading-relaxed">
+            <p className="text-base text-gray-800 dark:text-[#efe9d4] leading-relaxed">
               Taher Ali Enterprises is a trusted wholesale supplier serving customers across Hyderabad, Telangana. Since 2015, we've been providing quality food products including pickles, biscuits, sweets and pure ghee at competitive wholesale prices.
             </p>
-            <p className="text-base text-gray-700 dark:text-[#d9d3c1] leading-relaxed">
+            <p className="text-base text-gray-800 dark:text-[#efe9d4] leading-relaxed">
               Our goal is simple: fresh products, honest pricing, and reliable customer service. Every batch is rigorously quality-tested before dispatch from our facility at Alijah Kotla, Charminar.
             </p>
 
@@ -141,14 +141,14 @@ export default function HomePage() {
               <div className="glass-panel p-4 rounded-xl border border-[#556B2F]/20 flex items-center gap-4">
                 <div className="p-3 bg-[#556B2F]/15 rounded-lg text-[#556B2F] dark:text-[#D4AF37]"><Award className="w-6 h-6" /></div>
                 <div>
-                  <p className="text-xs text-gray-500 dark:text-[#c9d1c1]">Proprietor</p>
+                  <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">Proprietor</p>
                   <p className="font-bold text-sm sm:text-base">{BUSINESS_INFO.owner}</p>
                 </div>
               </div>
               <div className="glass-panel p-4 rounded-xl border border-[#556B2F]/20 flex items-center gap-4">
                 <div className="p-3 bg-[#556B2F]/15 rounded-lg text-[#556B2F] dark:text-[#D4AF37]"><MapPin className="w-6 h-6" /></div>
                 <div>
-                  <p className="text-xs text-gray-500 dark:text-[#c9d1c1]">Service Area</p>
+                  <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">Service Area</p>
                   <p className="font-bold text-sm sm:text-base">{BUSINESS_INFO.serviceArea}</p>
                 </div>
               </div>
@@ -180,7 +180,7 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold font-serif text-[#2C3E1F] dark:text-[#F5F1E4]">
               Wholesale Trust You Can Taste
             </h2>
-            <p className="text-base text-gray-600 dark:text-[#d9d3c1]">
+            <p className="text-base text-gray-700 dark:text-[#e8e2ce]">
               More than a supplier — a long-term partner for retailers, restaurants, and event planners across Hyderabad.
             </p>
           </div>
@@ -195,7 +195,7 @@ export default function HomePage() {
               <div key={i} className="glass-panel p-6 rounded-2xl border border-[#556B2F]/20 space-y-3 hover:shadow-xl transition-all hover:-translate-y-1 animate-fadeInUp" style={{ animationDelay: `${i * 100}ms` }}>
                 <div className="w-14 h-14 rounded-xl bg-[#556B2F]/15 dark:bg-[#D4AF37]/15 text-[#556B2F] dark:text-[#D4AF37] flex items-center justify-center">{f.icon}</div>
                 <h3 className="font-bold text-lg font-serif">{f.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-[#d9d3c1] leading-relaxed">{f.desc}</p>
+                <p className="text-sm text-gray-700 dark:text-[#e8e2ce] leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -233,7 +233,7 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold font-serif text-[#2C3E1F] dark:text-[#F5F1E4]">
               What Our Wholesale Buyers Say
             </h2>
-            <p className="text-sm text-gray-500 dark:text-[#c9d1c1] italic">(Sample testimonials — replace with real customer reviews)</p>
+            <p className="text-sm text-gray-600 dark:text-[#dcd6bf] italic">(Sample testimonials — replace with real customer reviews)</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -244,10 +244,10 @@ export default function HomePage() {
                     <Star key={j} className="w-4 h-4 fill-[#D4AF37]" />
                   ))}
                 </div>
-                <p className="text-sm text-gray-700 dark:text-[#d9d3c1] leading-relaxed italic">"{t.text}"</p>
+                <p className="text-sm text-gray-800 dark:text-[#efe9d4] leading-relaxed italic">"{t.text}"</p>
                 <div className="pt-3 border-t border-[#556B2F]/20">
                   <p className="font-bold text-sm">{t.name}</p>
-                  <p className="text-xs text-gray-500 dark:text-[#c9d1c1]">{t.role}</p>
+                  <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">{t.role}</p>
                 </div>
               </div>
             ))}
@@ -272,7 +272,7 @@ export default function HomePage() {
                 <ChevronDown className={`w-5 h-5 text-[#556B2F] dark:text-[#D4AF37] transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
               </button>
               {openFaq === i && (
-                <div className="px-6 pb-5 text-sm text-gray-700 dark:text-[#d9d3c1] leading-relaxed animate-fadeIn">{f.a}</div>
+                <div className="px-6 pb-5 text-sm text-gray-800 dark:text-[#efe9d4] leading-relaxed animate-fadeIn">{f.a}</div>
               )}
             </div>
           ))}
@@ -284,7 +284,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-4">
             <h2 className="text-3xl sm:text-4xl font-extrabold font-serif text-[#2C3E1F] dark:text-[#F5F1E4]">Get in Touch</h2>
-            <p className="text-base text-gray-600 dark:text-[#d9d3c1]">
+            <p className="text-base text-gray-700 dark:text-[#e8e2ce]">
               Have questions about bulk quantities, custom packaging, or door delivery across Hyderabad? Contact us directly.
             </p>
           </div>
@@ -296,7 +296,7 @@ export default function HomePage() {
               <div className="space-y-4 text-sm">
                 <ContactRow icon={<Award className="w-5 h-5" />} title="Business Name & Owner">
                   <p className="font-bold">{BUSINESS_INFO.name}</p>
-                  <p className="text-gray-600 dark:text-[#d9d3c1]">Proprietor: {BUSINESS_INFO.owner}</p>
+                  <p className="text-gray-700 dark:text-[#e8e2ce]">Proprietor: {BUSINESS_INFO.owner}</p>
                 </ContactRow>
 
                 <ContactRow icon={<Phone className="w-5 h-5" />} title="Phone & WhatsApp">
@@ -306,7 +306,7 @@ export default function HomePage() {
 
                 <ContactRow icon={<MapPin className="w-5 h-5" />} title="Location & Service Area">
                   <p className="font-bold">{BUSINESS_INFO.location}</p>
-                  <p className="text-gray-600 dark:text-[#d9d3c1]">{BUSINESS_INFO.serviceArea}</p>
+                  <p className="text-gray-700 dark:text-[#e8e2ce]">{BUSINESS_INFO.serviceArea}</p>
                 </ContactRow>
 
                 <ContactRow icon={<Clock className="w-5 h-5" />} title="Business Hours">
@@ -336,7 +336,7 @@ export default function HomePage() {
                   <MapPin className="w-8 h-8" />
                 </div>
                 <h5 className="text-xl font-bold font-serif mb-2">Taher Ali Enterprises</h5>
-                <p className="text-sm text-gray-600 dark:text-[#d9d3c1] max-w-md mb-6">
+                <p className="text-sm text-gray-700 dark:text-[#e8e2ce] max-w-md mb-6">
                   Located at <strong>{BUSINESS_INFO.location}</strong>. Serving wholesale food product distribution across Hyderabad and surrounding districts with prompt dispatch.
                 </p>
                 <a href={BUSINESS_INFO.googleMapsUrl} target="_blank" rel="noopener noreferrer"
@@ -388,7 +388,7 @@ export default function HomePage() {
 function Row({ label, value, valueClass = "", small = false }) {
   return (
     <div className="flex justify-between items-center py-2 border-b border-gray-200 dark:border-[#3a4a30] last:border-0">
-      <span className="text-gray-500 dark:text-[#c9d1c1]">{label}</span>
+      <span className="text-gray-600 dark:text-[#dcd6bf]">{label}</span>
       <span className={`font-semibold text-right ${small ? "text-xs" : ""} ${valueClass}`}>{value}</span>
     </div>
   );
@@ -399,7 +399,7 @@ function ContactRow({ icon, title, children }) {
     <div className="flex items-start gap-4">
       <div className="p-3 bg-[#556B2F]/15 text-[#556B2F] dark:text-[#D4AF37] rounded-xl shrink-0">{icon}</div>
       <div>
-        <p className="text-xs text-gray-500 dark:text-[#c9d1c1]">{title}</p>
+        <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">{title}</p>
         {children}
       </div>
     </div>

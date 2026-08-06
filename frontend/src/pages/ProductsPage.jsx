@@ -30,7 +30,7 @@ export default function ProductsPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fadeIn" data-testid="products-page">
-      <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 dark:text-[#c9d1c1] mb-6" data-testid="products-breadcrumb">
+      <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-[#dcd6bf] mb-6" data-testid="products-breadcrumb">
         <Link to="/" className="hover:text-[#556B2F] dark:hover:text-[#D4AF37] transition-colors">Home</Link>
         <ChevronRight className="w-4 h-4" />
         <span className="text-[#2C3E1F] dark:text-[#F5F1E4] font-semibold">Retail Catalog</span>
@@ -48,7 +48,7 @@ export default function ProductsPage() {
           <h1 className="text-3xl sm:text-5xl font-extrabold font-serif text-[#2C3E1F] dark:text-[#F5F1E4]">
             Retail Catalog
           </h1>
-          <p className="text-base text-gray-600 dark:text-[#d9d3c1] max-w-2xl">
+          <p className="text-base text-gray-700 dark:text-[#e8e2ce] max-w-2xl">
             Traditional Hyderabadi pickles, bakery biscuits, and pure ghee. Add products to your cart and continue shopping — checkout combines retail and wholesale in one order.
           </p>
         </div>
@@ -57,7 +57,7 @@ export default function ProductsPage() {
       <div className="mb-8 glass-panel p-5 rounded-2xl border border-[#D4AF37]/40 bg-gradient-to-r from-[#F4EEDD] to-[#F4EEDD]/50 dark:from-[#243020] dark:to-[#243020]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-center sm:text-left">
           <p className="text-xs font-bold text-[#8B5A2B] dark:text-[#D4AF37] uppercase tracking-wider">Looking for wholesale volumes?</p>
-          <p className="text-sm text-gray-700 dark:text-[#d9d3c1]">Browse our 100+ product wholesale catalog — text-only listing designed for bulk buyers.</p>
+          <p className="text-sm text-gray-800 dark:text-[#efe9d4]">Browse our 100+ product wholesale catalog — text-only listing designed for bulk buyers.</p>
         </div>
         <Link
           to="/wholesale"
@@ -91,13 +91,13 @@ export default function ProductsPage() {
         </div>
 
         <div className="relative w-full lg:w-80">
-          <Search className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
+          <Search className="absolute left-3 top-3 w-4 h-4 text-gray-500 dark:text-[#a8b39c]" />
           <input
             type="text"
             placeholder="Search pickles, biscuits, ghee…"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-white dark:bg-[#1e2a1a] border border-[#556B2F]/30 text-sm focus:outline-none focus:ring-2 focus:ring-[#556B2F] text-[#2C3E1F] dark:text-[#F5F1E4] placeholder-gray-400 dark:placeholder-[#8fa085]"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-white dark:bg-[#1e2a1a] border border-[#556B2F]/30 text-sm focus:outline-none focus:ring-2 focus:ring-[#556B2F] text-[#2C3E1F] dark:text-[#F5F1E4] placeholder-gray-500 dark:placeholder-[#a8b39c]"
             data-testid="product-search-input"
           />
         </div>
@@ -122,9 +122,9 @@ export default function ProductsPage() {
         </div>
       ) : (
         <div className="text-center py-24" data-testid="no-products-found">
-          <Package className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+          <Package className="w-12 h-12 text-gray-500 mx-auto mb-4" />
           <h3 className="text-lg font-bold">No products found</h3>
-          <p className="text-sm text-gray-500 dark:text-[#c9d1c1]">Try searching with a different keyword or category.</p>
+          <p className="text-sm text-gray-600 dark:text-[#dcd6bf]">Try searching with a different keyword or category.</p>
         </div>
       )}
     </div>

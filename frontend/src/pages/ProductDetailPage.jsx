@@ -26,9 +26,9 @@ export default function ProductDetailPage() {
   if (!product) {
     return (
       <div className="max-w-3xl mx-auto px-6 py-24 text-center animate-fadeIn">
-        <Package className="w-16 h-16 mx-auto text-gray-400 mb-4" />
+        <Package className="w-16 h-16 mx-auto text-gray-500 dark:text-[#a8b39c] mb-4" />
         <h1 className="text-2xl font-bold font-serif mb-2">Product not found</h1>
-        <p className="text-gray-500 dark:text-[#c9d1c1] mb-6">The product you're looking for is no longer available.</p>
+        <p className="text-gray-600 dark:text-[#dcd6bf] mb-6">The product you're looking for is no longer available.</p>
         <Link to="/products" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#556B2F] text-white font-semibold">
           <ArrowLeft className="w-4 h-4" /> Back to Products
         </Link>
@@ -72,7 +72,7 @@ export default function ProductDetailPage() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8 space-y-10">
 
         {/* BREADCRUMB */}
-        <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 dark:text-[#c9d1c1] flex-wrap" data-testid="detail-breadcrumb">
+        <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-[#dcd6bf] flex-wrap" data-testid="detail-breadcrumb">
           <Link to="/" className="hover:text-[#556B2F] dark:hover:text-[#D4AF37] transition-colors">Home</Link>
           <ChevronRight className="w-4 h-4" />
           <Link to="/products" className="hover:text-[#556B2F] dark:hover:text-[#D4AF37] transition-colors">Products</Link>
@@ -109,7 +109,7 @@ export default function ProductDetailPage() {
               <div className={`text-[8rem] sm:text-[10rem] transition-transform duration-500 ${activeImageZoom ? 'scale-150' : 'group-hover:scale-110'}`}>
                 {emoji}
               </div>
-              <span className="text-xs font-semibold text-gray-500 dark:text-[#c9d1c1] uppercase tracking-widest mt-4">[ Image Placeholder ]</span>
+              <span className="text-xs font-semibold text-gray-600 dark:text-[#dcd6bf] uppercase tracking-widest mt-4">[ Image Placeholder ]</span>
 
               <div className="absolute bottom-5 left-5 px-4 py-2 rounded-xl bg-black/60 text-white text-xs font-medium flex items-center gap-2 backdrop-blur-sm">
                 <ZoomIn className="w-4 h-4" /> {activeImageZoom ? 'Click to zoom out' : 'Click to zoom image'}
@@ -136,7 +136,7 @@ export default function ProductDetailPage() {
               </div>
               <div className="space-y-1">
                 <h4 className="font-bold text-sm text-[#2C3E1F] dark:text-[#F5F1E4] font-serif">Product Image Notice</h4>
-                <p className="text-xs sm:text-[13px] text-gray-700 dark:text-[#d9d3c1] leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-gray-800 dark:text-[#efe9d4] leading-relaxed">
                   Images are provided for illustration and marketing purposes only. The actual product may vary slightly in appearance, packaging, color, shape, or decoration depending on the manufacturing batch. Product quality, weight, and specifications remain as described.
                 </p>
               </div>
@@ -152,7 +152,7 @@ export default function ProductDetailPage() {
               <h1 className="text-3xl sm:text-5xl font-extrabold font-serif text-[#2C3E1F] dark:text-[#F5F1E4] leading-tight">
                 {product.name}
               </h1>
-              <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600 dark:text-[#d9d3c1]">
+              <div className="flex flex-wrap items-center gap-3 text-sm text-gray-700 dark:text-[#e8e2ce]">
                 <span>Weight: <strong className="text-[#2C3E1F] dark:text-[#F5F1E4]">{product.weight}</strong></span>
                 <span>•</span>
                 <span className="text-green-600 dark:text-green-400 font-semibold flex items-center gap-1">
@@ -163,7 +163,7 @@ export default function ProductDetailPage() {
 
             <div className="p-6 rounded-2xl bg-[#556B2F]/10 dark:bg-[#D4AF37]/10 border border-[#556B2F]/20 flex flex-wrap items-baseline gap-3">
               <span className="text-4xl sm:text-5xl font-extrabold text-[#556B2F] dark:text-[#D4AF37]">₹{product.price}</span>
-              <span className="text-xs text-gray-500 dark:text-[#c9d1c1] font-medium">Wholesale Price (Inclusive of all taxes)</span>
+              <span className="text-xs text-gray-600 dark:text-[#dcd6bf] font-medium">Wholesale Price (Inclusive of all taxes)</span>
             </div>
 
             {/* SHARE & ENQUIRE ROW */}
@@ -188,7 +188,7 @@ export default function ProductDetailPage() {
             {/* PRODUCT DESCRIPTION */}
             <div className="glass-panel p-6 rounded-2xl border border-[#556B2F]/20 space-y-2">
               <h3 className="font-bold text-base text-[#556B2F] dark:text-[#D4AF37]">Product Description</h3>
-              <p className="text-sm sm:text-base text-gray-700 dark:text-[#e6e0cd] leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-800 dark:text-[#efe9d4] leading-relaxed">
                 {product.description}
               </p>
             </div>
@@ -210,38 +210,38 @@ export default function ProductDetailPage() {
             {/* INGREDIENTS */}
             <div className="glass-panel p-6 rounded-2xl border border-[#556B2F]/20 space-y-2">
               <h3 className="font-bold text-base text-[#556B2F] dark:text-[#D4AF37]">Ingredients</h3>
-              <p className="text-sm text-gray-700 dark:text-[#e6e0cd] leading-relaxed">{product.ingredients}</p>
+              <p className="text-sm text-gray-800 dark:text-[#efe9d4] leading-relaxed">{product.ingredients}</p>
             </div>
 
             {/* STORAGE & SHELF LIFE */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="glass-panel p-5 rounded-2xl border border-[#556B2F]/20 space-y-2">
                 <h3 className="font-bold text-sm text-[#556B2F] dark:text-[#D4AF37]">Storage Instructions</h3>
-                <p className="text-xs sm:text-sm text-gray-700 dark:text-[#e6e0cd] leading-relaxed">{product.storage}</p>
+                <p className="text-xs sm:text-sm text-gray-800 dark:text-[#efe9d4] leading-relaxed">{product.storage}</p>
               </div>
               <div className="glass-panel p-5 rounded-2xl border border-[#556B2F]/20 space-y-2">
                 <h3 className="font-bold text-sm text-[#556B2F] dark:text-[#D4AF37]">Shelf Life</h3>
-                <p className="text-xs sm:text-sm text-gray-700 dark:text-[#e6e0cd] leading-relaxed">{product.shelfLife}</p>
+                <p className="text-xs sm:text-sm text-gray-800 dark:text-[#efe9d4] leading-relaxed">{product.shelfLife}</p>
               </div>
             </div>
 
             {/* BEST SERVED WITH */}
             <div className="glass-panel p-6 rounded-2xl border border-[#556B2F]/20 space-y-2">
               <h3 className="font-bold text-base text-[#556B2F] dark:text-[#D4AF37]">Best Served With</h3>
-              <p className="text-sm text-gray-700 dark:text-[#e6e0cd] leading-relaxed">{product.bestServedWith}</p>
+              <p className="text-sm text-gray-800 dark:text-[#efe9d4] leading-relaxed">{product.bestServedWith}</p>
             </div>
 
             {/* DELIVERY & WHOLESALE */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="glass-panel p-5 rounded-2xl border border-[#556B2F]/20 space-y-2">
                 <h3 className="font-bold text-sm text-[#556B2F] dark:text-[#D4AF37]">Delivery Information</h3>
-                <p className="text-xs sm:text-sm text-gray-700 dark:text-[#e6e0cd] leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-800 dark:text-[#efe9d4] leading-relaxed">
                   Fast delivery available throughout Hyderabad. Same-day dispatch for orders confirmed before 1 PM.
                 </p>
               </div>
               <div className="glass-panel p-5 rounded-2xl border border-[#556B2F]/20 space-y-2">
                 <h3 className="font-bold text-sm text-[#556B2F] dark:text-[#D4AF37]">Wholesale Orders</h3>
-                <p className="text-xs sm:text-sm text-gray-700 dark:text-[#e6e0cd] leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-800 dark:text-[#efe9d4] leading-relaxed">
                   Bulk orders welcome. Contact us for wholesale pricing and customized quantities.
                 </p>
               </div>
@@ -286,7 +286,7 @@ export default function ProductDetailPage() {
             </div>
             <div className="min-w-0">
               <h4 className="font-bold text-sm truncate">{product.name}</h4>
-              <p className="text-[11px] text-gray-500 dark:text-[#c9d1c1]">{product.weight} • ₹{product.price} each</p>
+              <p className="text-[11px] text-gray-600 dark:text-[#dcd6bf]">{product.weight} • ₹{product.price} each</p>
             </div>
           </div>
 
@@ -302,7 +302,7 @@ export default function ProductDetailPage() {
             </div>
 
             <div className="text-right shrink-0">
-              <span className="text-[10px] text-gray-500 dark:text-[#c9d1c1] block leading-tight">Total</span>
+              <span className="text-[10px] text-gray-600 dark:text-[#dcd6bf] block leading-tight">Total</span>
               <span className="text-base sm:text-lg font-extrabold text-[#556B2F] dark:text-[#D4AF37] leading-tight" data-testid="sticky-total-price">
                 ₹{product.price * qty}
               </span>
@@ -342,7 +342,7 @@ function MiniCard({ product }) {
       </div>
       <div>
         <h4 className="font-bold text-sm mb-1 line-clamp-1 text-[#2C3E1F] dark:text-[#F5F1E4]">{product.name}</h4>
-        <p className="text-xs text-gray-500 dark:text-[#c9d1c1] mb-2">{product.weight}</p>
+        <p className="text-xs text-gray-600 dark:text-[#dcd6bf] mb-2">{product.weight}</p>
         <p className="text-sm font-extrabold text-[#556B2F] dark:text-[#D4AF37]">₹{product.price}</p>
       </div>
     </Link>

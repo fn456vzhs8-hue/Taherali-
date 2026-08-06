@@ -24,7 +24,7 @@ export default function CartDrawer() {
               <ShoppingBag className="w-6 h-6 text-[#556B2F] dark:text-[#D4AF37]" />
               <div>
                 <h3 className="font-bold text-lg font-serif leading-tight">Your Cart</h3>
-                <p className="text-[11px] text-gray-500 dark:text-[#c9d1c1]">{totalItemsCount} {totalItemsCount === 1 ? "item" : "items"}</p>
+                <p className="text-[11px] text-gray-600 dark:text-[#dcd6bf]">{totalItemsCount} {totalItemsCount === 1 ? "item" : "items"}</p>
               </div>
             </div>
             <button onClick={() => setCartOpen(false)} className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-[#2a3822]" aria-label="Close cart">
@@ -35,9 +35,9 @@ export default function CartDrawer() {
           <div className="flex-1 overflow-y-auto p-5 sm:p-6 space-y-5">
             {cart.length === 0 ? (
               <div className="text-center py-20 space-y-4">
-                <ShoppingBag className="w-16 h-16 text-gray-300 mx-auto" />
+                <ShoppingBag className="w-16 h-16 text-gray-400 dark:text-[#556B2F] mx-auto" />
                 <p className="text-lg font-bold">Your cart is empty</p>
-                <p className="text-sm text-gray-500 dark:text-[#c9d1c1]">Add products from Retail or Wholesale to begin your order.</p>
+                <p className="text-sm text-gray-600 dark:text-[#dcd6bf]">Add products from Retail or Wholesale to begin your order.</p>
                 <button
                   onClick={() => setCartOpen(false)}
                   className="px-6 py-3 rounded-xl bg-[#556B2F] hover:bg-[#2C3E1F] text-white font-semibold text-sm shadow-md"
@@ -75,7 +75,7 @@ export default function CartDrawer() {
             <div className="p-5 sm:p-6 border-t border-[#556B2F]/25 bg-[#F4EEDD]/60 dark:bg-[#243020]/70 space-y-4">
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-[#c9d1c1]">Total Items</span>
+                  <span className="text-gray-600 dark:text-[#dcd6bf]">Total Items</span>
                   <span className="font-bold" data-testid="cart-total-items">{totalItemsCount}</span>
                 </div>
                 <div className="flex justify-between text-base font-extrabold pt-2 border-t border-gray-300 dark:border-[#3a4a30]">
@@ -112,13 +112,13 @@ function CartSection({ icon, title, count, items, updateQuantity, removeItem }) 
   return (
     <div className="space-y-3">
       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#556B2F] dark:text-[#D4AF37]">
-        {icon} {title} <span className="text-gray-400">({count})</span>
+        {icon} {title} <span className="text-gray-600 dark:text-[#c9d1c1]">({count})</span>
       </div>
       {items.map(item => (
         <div key={item.id} className="glass-panel p-3.5 rounded-xl border border-[#556B2F]/20 flex items-center gap-3" data-testid={`cart-item-${item.id}`}>
           <div className="flex-1 min-w-0">
             <h4 className="font-bold text-sm truncate">{item.name}</h4>
-            <p className="text-[11px] text-gray-500 dark:text-[#c9d1c1]">{item.weight} · ₹{item.price} each</p>
+            <p className="text-[11px] text-gray-600 dark:text-[#dcd6bf]">{item.weight} · ₹{item.price} each</p>
             <p className="text-sm font-extrabold text-[#556B2F] dark:text-[#D4AF37] mt-0.5">₹{(item.price * item.quantity).toLocaleString("en-IN")}</p>
           </div>
 

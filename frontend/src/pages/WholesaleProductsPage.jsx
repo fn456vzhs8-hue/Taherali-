@@ -86,7 +86,7 @@ export default function WholesaleProductsPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fadeIn" data-testid="wholesale-products-page">
 
-      <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 dark:text-[#c9d1c1] mb-6 flex-wrap" data-testid="wholesale-breadcrumb">
+      <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-[#dcd6bf] mb-6 flex-wrap" data-testid="wholesale-breadcrumb">
         <Link to="/" className="hover:text-[#556B2F] dark:hover:text-[#D4AF37] transition-colors">Home</Link>
         <ChevronRight className="w-4 h-4" />
         <Link to="/products" className="hover:text-[#556B2F] dark:hover:text-[#D4AF37] transition-colors">Retail Products</Link>
@@ -121,7 +121,7 @@ export default function WholesaleProductsPage() {
             <h1 className="text-3xl sm:text-5xl font-extrabold font-serif text-[#2C3E1F] dark:text-[#F5F1E4]">
               Wholesale Products
             </h1>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-[#d9d3c1] max-w-2xl">
+            <p className="text-sm sm:text-base text-gray-700 dark:text-[#e8e2ce] max-w-2xl">
               Complete wholesale catalog with <strong>{WHOLESALE_PRODUCTS.length}+ products</strong> — text-only listing designed for bulk buyers, retailers, and distributors. Add multiple items to your cart and checkout together.
             </p>
           </div>
@@ -131,20 +131,20 @@ export default function WholesaleProductsPage() {
       <div className="glass-panel p-4 sm:p-5 rounded-2xl border border-[#556B2F]/20 mb-6 space-y-4" data-testid="wholesale-controls">
         <div className="flex flex-col md:flex-row gap-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
+            <Search className="absolute left-3 top-3.5 w-4 h-4 text-gray-500 dark:text-[#a8b39c]" />
             <input type="text" placeholder="Search by product name or weight (e.g. 400g, cashew, sugar free)…"
               value={query} onChange={(e) => setQuery(e.target.value)}
-              className="w-full pl-9 pr-9 py-3 rounded-xl bg-white dark:bg-[#1e2a1a] border border-[#556B2F]/30 text-sm focus:outline-none focus:ring-2 focus:ring-[#556B2F] text-[#2C3E1F] dark:text-[#F5F1E4] placeholder-gray-400 dark:placeholder-[#8fa085]"
+              className="w-full pl-9 pr-9 py-3 rounded-xl bg-white dark:bg-[#1e2a1a] border border-[#556B2F]/30 text-sm focus:outline-none focus:ring-2 focus:ring-[#556B2F] text-[#2C3E1F] dark:text-[#F5F1E4] placeholder-gray-500 dark:placeholder-[#a8b39c]"
               data-testid="wholesale-search-input" />
             {query && (
-              <button onClick={() => setQuery("")} className="absolute right-3 top-3.5 text-gray-400 hover:text-[#556B2F]" aria-label="Clear search">
+              <button onClick={() => setQuery("")} className="absolute right-3 top-3.5 text-gray-500 dark:text-[#a8b39c] hover:text-[#556B2F] dark:hover:text-[#D4AF37]" aria-label="Clear search">
                 <X className="w-4 h-4" />
               </button>
             )}
           </div>
 
           <div className="relative">
-            <ArrowUpDown className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 pointer-events-none" />
+            <ArrowUpDown className="absolute left-3 top-3.5 w-4 h-4 text-gray-500 pointer-events-none" />
             <select value={sortKey} onChange={(e) => setSortKey(e.target.value)}
               className="pl-9 pr-9 py-3 rounded-xl bg-white dark:bg-[#1e2a1a] border border-[#556B2F]/30 text-sm focus:outline-none focus:ring-2 focus:ring-[#556B2F] text-[#2C3E1F] dark:text-[#F5F1E4] appearance-none w-full md:w-auto"
               data-testid="wholesale-sort-select">
@@ -152,7 +152,7 @@ export default function WholesaleProductsPage() {
                 <option key={opt.key} value={opt.key}>Sort: {opt.label}</option>
               ))}
             </select>
-            <ChevronDown className="absolute right-3 top-3.5 w-4 h-4 text-gray-400 pointer-events-none" />
+            <ChevronDown className="absolute right-3 top-3.5 w-4 h-4 text-gray-500 pointer-events-none" />
           </div>
 
           <button onClick={() => setShowFilters(!showFilters)}
@@ -180,7 +180,7 @@ export default function WholesaleProductsPage() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between text-xs text-gray-500 dark:text-[#c9d1c1] pt-2 border-t border-[#556B2F]/15">
+        <div className="flex items-center justify-between text-xs text-gray-600 dark:text-[#dcd6bf] pt-2 border-t border-[#556B2F]/15">
           <span data-testid="wholesale-result-count">
             Showing <strong className="text-[#556B2F] dark:text-[#D4AF37]">{filtered.length}</strong> of {WHOLESALE_PRODUCTS.length} products
           </span>
@@ -202,9 +202,9 @@ export default function WholesaleProductsPage() {
 
       {filtered.length === 0 ? (
         <div className="text-center py-24 glass-panel rounded-2xl border border-[#556B2F]/20 mt-4" data-testid="wholesale-empty-state">
-          <Package className="w-14 h-14 text-gray-400 mx-auto mb-4" />
+          <Package className="w-14 h-14 text-gray-500 mx-auto mb-4" />
           <h3 className="text-lg font-bold">No products match your filters</h3>
-          <p className="text-sm text-gray-500 dark:text-[#c9d1c1] mt-1">Try a different keyword, category, or clear the filters.</p>
+          <p className="text-sm text-gray-600 dark:text-[#dcd6bf] mt-1">Try a different keyword, category, or clear the filters.</p>
           <button onClick={clearFilters} className="mt-4 px-5 py-2.5 rounded-xl bg-[#556B2F] text-white font-semibold text-sm">Clear Filters</button>
         </div>
       ) : (
@@ -262,18 +262,18 @@ function WholesaleRow({ product, index, cartQty, onAdd, onInc, onDec }) {
       </div>
 
       <div className="lg:text-center">
-        <span className="lg:hidden text-[10px] uppercase text-gray-500 dark:text-[#c9d1c1] font-semibold tracking-wider block">Weight</span>
+        <span className="lg:hidden text-[10px] uppercase text-gray-600 dark:text-[#dcd6bf] font-semibold tracking-wider block">Weight</span>
         <span className="font-mono font-bold text-sm text-[#2C3E1F] dark:text-[#F5F1E4]">{product.weight}</span>
       </div>
 
       <div className="lg:text-center">
-        <span className="lg:hidden text-[10px] uppercase text-gray-500 dark:text-[#c9d1c1] font-semibold tracking-wider block">MRP</span>
+        <span className="lg:hidden text-[10px] uppercase text-gray-600 dark:text-[#dcd6bf] font-semibold tracking-wider block">MRP</span>
         <span className="font-extrabold text-lg text-[#556B2F] dark:text-[#D4AF37]">₹{product.mrp}</span>
       </div>
 
       <div>
-        <span className="lg:hidden text-[10px] uppercase text-gray-500 dark:text-[#c9d1c1] font-semibold tracking-wider block mb-1">Description</span>
-        <p className="text-xs sm:text-sm text-gray-700 dark:text-[#d9d3c1] leading-relaxed">{product.description}</p>
+        <span className="lg:hidden text-[10px] uppercase text-gray-600 dark:text-[#dcd6bf] font-semibold tracking-wider block mb-1">Description</span>
+        <p className="text-xs sm:text-sm text-gray-800 dark:text-[#efe9d4] leading-relaxed">{product.description}</p>
       </div>
 
       <div className="flex justify-end">
