@@ -129,7 +129,7 @@ export default function CheckoutModal() {
           <div className="flex justify-between items-center mb-6 border-b border-[#556B2F]/20 pb-4">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold font-serif">Complete Your Order</h3>
-              <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">Order dispatched via WhatsApp to {BUSINESS_INFO.phone}</p>
+              <p className="text-xs text-gray-800 dark:text-[#dcd6bf]">Order dispatched via WhatsApp to {BUSINESS_INFO.phone}</p>
             </div>
             <button onClick={closeAndReopenCart} className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-[#2a3822]" aria-label="Close" data-testid="checkout-close-btn">
               <X className="w-6 h-6" />
@@ -266,7 +266,7 @@ function Field({ label, required, hint, error, children }) {
     <label className="block space-y-1">
       <span className="text-xs font-semibold flex items-center gap-1">
         {label} {required && <span className="text-red-500">*</span>}
-        {hint && <span className="text-gray-500 dark:text-[#a8b39c] font-normal">· {hint}</span>}
+        {hint && <span className="text-gray-700 dark:text-[#a8b39c] font-normal">· {hint}</span>}
       </span>
       {children}
       {error && (

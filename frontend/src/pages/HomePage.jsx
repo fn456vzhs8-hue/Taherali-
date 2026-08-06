@@ -70,15 +70,15 @@ export default function HomePage() {
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-[#556B2F]/20 text-center sm:text-left">
               <div>
                 <p className="text-2xl sm:text-3xl font-extrabold text-[#2C3E1F] dark:text-[#D4AF37]">100%</p>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-[#dcd6bf]">Pure & Hygienic</p>
+                <p className="text-xs sm:text-sm text-gray-800 dark:text-[#dcd6bf]">Pure & Hygienic</p>
               </div>
               <div>
                 <p className="text-2xl sm:text-3xl font-extrabold text-[#2C3E1F] dark:text-[#D4AF37]">100+</p>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-[#dcd6bf]">Wholesale Products</p>
+                <p className="text-xs sm:text-sm text-gray-800 dark:text-[#dcd6bf]">Wholesale Products</p>
               </div>
               <div>
                 <p className="text-2xl sm:text-3xl font-extrabold text-[#2C3E1F] dark:text-[#D4AF37]">Free</p>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-[#dcd6bf]">Delivery under 3km</p>
+                <p className="text-xs sm:text-sm text-gray-800 dark:text-[#dcd6bf]">Delivery under 3km</p>
               </div>
             </div>
           </div>
@@ -94,8 +94,8 @@ export default function HomePage() {
                 <div className="w-16 h-16 rounded-xl bg-[#F4EEDD] dark:bg-[#1e2a1a] flex items-center justify-center text-2xl">🥭</div>
                 <div>
                   <h4 className="font-bold text-base">Traditional Mango Achar</h4>
-                  <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">250g · Retail Pack</p>
-                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹89 <span className="text-xs font-normal text-gray-600 dark:text-[#dcd6bf]">/ unit</span></p>
+                  <p className="text-xs text-gray-800 dark:text-[#dcd6bf]">250g · Retail Pack</p>
+                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹89 <span className="text-xs font-normal text-gray-800 dark:text-[#dcd6bf]">/ unit</span></p>
                 </div>
               </Link>
 
@@ -103,8 +103,8 @@ export default function HomePage() {
                 <div className="w-16 h-16 rounded-xl bg-[#F4EEDD] dark:bg-[#1e2a1a] flex items-center justify-center text-2xl">🍪</div>
                 <div>
                   <h4 className="font-bold text-base">Osmania Biscuit</h4>
-                  <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">400g Bakery Pack</p>
-                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹240 <span className="text-xs font-normal text-gray-600 dark:text-[#dcd6bf]">/ unit</span></p>
+                  <p className="text-xs text-gray-800 dark:text-[#dcd6bf]">400g Bakery Pack</p>
+                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹240 <span className="text-xs font-normal text-gray-800 dark:text-[#dcd6bf]">/ unit</span></p>
                 </div>
               </Link>
 
@@ -141,14 +141,14 @@ export default function HomePage() {
               <div className="glass-panel p-4 rounded-xl border border-[#556B2F]/20 flex items-center gap-4">
                 <div className="p-3 bg-[#556B2F]/15 rounded-lg text-[#556B2F] dark:text-[#D4AF37]"><Award className="w-6 h-6" /></div>
                 <div>
-                  <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">Proprietor</p>
+                  <p className="text-xs text-gray-800 dark:text-[#dcd6bf]">Proprietor</p>
                   <p className="font-bold text-sm sm:text-base">{BUSINESS_INFO.owner}</p>
                 </div>
               </div>
               <div className="glass-panel p-4 rounded-xl border border-[#556B2F]/20 flex items-center gap-4">
                 <div className="p-3 bg-[#556B2F]/15 rounded-lg text-[#556B2F] dark:text-[#D4AF37]"><MapPin className="w-6 h-6" /></div>
                 <div>
-                  <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">Service Area</p>
+                  <p className="text-xs text-gray-800 dark:text-[#dcd6bf]">Service Area</p>
                   <p className="font-bold text-sm sm:text-base">{BUSINESS_INFO.serviceArea}</p>
                 </div>
               </div>
@@ -213,13 +213,13 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="glass-panel p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+            <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
               <ShieldCheck className="w-8 h-8 mx-auto mb-2 text-[#D4AF37]" />
-              <p className="font-bold text-sm">Hygienic Facility</p>
+              <p className="font-bold text-sm text-white">Hygienic Facility</p>
             </div>
-            <div className="glass-panel p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+            <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
               <HeartHandshake className="w-8 h-8 mx-auto mb-2 text-[#D4AF37]" />
-              <p className="font-bold text-sm">Honest Pricing</p>
+              <p className="font-bold text-sm text-white">Honest Pricing</p>
             </div>
           </div>
         </div>
@@ -233,7 +233,7 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold font-serif text-[#2C3E1F] dark:text-[#F5F1E4]">
               What Our Wholesale Buyers Say
             </h2>
-            <p className="text-sm text-gray-600 dark:text-[#dcd6bf] italic">(Sample testimonials — replace with real customer reviews)</p>
+            <p className="text-sm text-gray-800 dark:text-[#dcd6bf] italic">(Sample testimonials — replace with real customer reviews)</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -247,7 +247,7 @@ export default function HomePage() {
                 <p className="text-sm text-gray-800 dark:text-[#efe9d4] leading-relaxed italic">"{t.text}"</p>
                 <div className="pt-3 border-t border-[#556B2F]/20">
                   <p className="font-bold text-sm">{t.name}</p>
-                  <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">{t.role}</p>
+                  <p className="text-xs text-gray-800 dark:text-[#dcd6bf]">{t.role}</p>
                 </div>
               </div>
             ))}
@@ -388,7 +388,7 @@ export default function HomePage() {
 function Row({ label, value, valueClass = "", small = false }) {
   return (
     <div className="flex justify-between items-center py-2 border-b border-gray-200 dark:border-[#3a4a30] last:border-0">
-      <span className="text-gray-600 dark:text-[#dcd6bf]">{label}</span>
+      <span className="text-gray-800 dark:text-[#dcd6bf]">{label}</span>
       <span className={`font-semibold text-right ${small ? "text-xs" : ""} ${valueClass}`}>{value}</span>
     </div>
   );
@@ -399,7 +399,7 @@ function ContactRow({ icon, title, children }) {
     <div className="flex items-start gap-4">
       <div className="p-3 bg-[#556B2F]/15 text-[#556B2F] dark:text-[#D4AF37] rounded-xl shrink-0">{icon}</div>
       <div>
-        <p className="text-xs text-gray-600 dark:text-[#dcd6bf]">{title}</p>
+        <p className="text-xs text-gray-800 dark:text-[#dcd6bf]">{title}</p>
         {children}
       </div>
     </div>

@@ -63,7 +63,7 @@ export default function WholesaleQuantityDialog({ product, onClose, onConfirm })
             <div className="min-w-0">
               <p className="text-[10px] font-bold text-[#8B5A2B] dark:text-[#D4AF37] uppercase tracking-wider">Wholesale Bulk Order</p>
               <h3 className="font-serif font-bold text-lg sm:text-xl leading-tight truncate">{product.name}</h3>
-              <p className="text-xs text-gray-600 dark:text-[#dcd6bf] mt-0.5">
+              <p className="text-xs text-gray-800 dark:text-[#dcd6bf] mt-0.5">
                 {product.weight} · ₹{product.mrp} per unit
               </p>
             </div>
@@ -77,8 +77,8 @@ export default function WholesaleQuantityDialog({ product, onClose, onConfirm })
 
         <div className="px-5 sm:px-7 py-5 sm:py-6 space-y-6 overflow-y-auto">
           <div>
-            <p className="text-xs font-bold text-gray-600 dark:text-[#dcd6bf] uppercase tracking-wider mb-3">
-              Select Quantity <span className="normal-case text-[10px] text-gray-500 dark:text-[#a8b39c] font-medium">(minimum {MIN_QTY} units)</span>
+            <p className="text-xs font-bold text-gray-800 dark:text-[#dcd6bf] uppercase tracking-wider mb-3">
+              Select Quantity <span className="normal-case text-[10px] text-gray-700 dark:text-[#a8b39c] font-medium">(minimum {MIN_QTY} units)</span>
             </p>
             <div className="grid grid-cols-4 gap-2 sm:gap-3">
               {PRESETS.map(p => {
@@ -101,7 +101,7 @@ export default function WholesaleQuantityDialog({ product, onClose, onConfirm })
 
           {mode === "custom" && (
             <div className="animate-fadeIn space-y-2" data-testid="wholesale-custom-qty-block">
-              <label className="text-xs font-bold text-gray-600 dark:text-[#dcd6bf] uppercase tracking-wider">Custom Quantity</label>
+              <label className="text-xs font-bold text-gray-800 dark:text-[#dcd6bf] uppercase tracking-wider">Custom Quantity</label>
               <div className="flex flex-wrap items-center gap-3">
                 <div className="flex items-center bg-[#F4EEDD] dark:bg-[#243020] rounded-xl p-1.5 border border-[#556B2F]/25 shadow-sm">
                   <button onClick={() => bumpCustom(-1)}
@@ -144,8 +144,8 @@ export default function WholesaleQuantityDialog({ product, onClose, onConfirm })
           <div className={`p-5 rounded-2xl border-2 transition-colors ${isBelowMin ? 'bg-gray-50 dark:bg-[#243020]/50 border-gray-200 dark:border-[#3a4a30]' : 'bg-[#556B2F]/10 dark:bg-[#D4AF37]/10 border-[#556B2F]/30'}`}>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs font-bold text-gray-600 dark:text-[#dcd6bf] uppercase tracking-wider">Estimated Total</p>
-                <p className="text-[10px] text-gray-600 dark:text-[#dcd6bf] mt-0.5">
+                <p className="text-xs font-bold text-gray-800 dark:text-[#dcd6bf] uppercase tracking-wider">Estimated Total</p>
+                <p className="text-[10px] text-gray-800 dark:text-[#dcd6bf] mt-0.5">
                   {quantity} units × ₹{product.mrp}
                 </p>
               </div>
@@ -162,7 +162,7 @@ export default function WholesaleQuantityDialog({ product, onClose, onConfirm })
             Cancel
           </button>
           <button onClick={handleConfirm} disabled={isBelowMin}
-            className={`flex-1 py-3 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all ${isBelowMin ? 'bg-gray-300 dark:bg-[#3a4a30] text-gray-500 cursor-not-allowed' : 'bg-[#556B2F] hover:bg-[#2C3E1F] text-white transform active:scale-95'}`}
+            className={`flex-1 py-3 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all ${isBelowMin ? 'bg-gray-300 dark:bg-[#3a4a30] text-gray-700 cursor-not-allowed' : 'bg-[#556B2F] hover:bg-[#2C3E1F] text-white transform active:scale-95'}`}
             data-testid="wholesale-qty-confirm-btn">
             <ShoppingCart className="w-4 h-4" /> Add {quantity} to Cart
           </button>

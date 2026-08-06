@@ -26,9 +26,9 @@ export default function ProductDetailPage() {
   if (!product) {
     return (
       <div className="max-w-3xl mx-auto px-6 py-24 text-center animate-fadeIn">
-        <Package className="w-16 h-16 mx-auto text-gray-500 dark:text-[#a8b39c] mb-4" />
+        <Package className="w-16 h-16 mx-auto text-gray-700 dark:text-[#a8b39c] mb-4" />
         <h1 className="text-2xl font-bold font-serif mb-2">Product not found</h1>
-        <p className="text-gray-600 dark:text-[#dcd6bf] mb-6">The product you're looking for is no longer available.</p>
+        <p className="text-gray-800 dark:text-[#dcd6bf] mb-6">The product you're looking for is no longer available.</p>
         <Link to="/products" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#556B2F] text-white font-semibold">
           <ArrowLeft className="w-4 h-4" /> Back to Products
         </Link>
@@ -72,7 +72,7 @@ export default function ProductDetailPage() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8 space-y-10">
 
         {/* BREADCRUMB */}
-        <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-[#dcd6bf] flex-wrap" data-testid="detail-breadcrumb">
+        <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-800 dark:text-[#dcd6bf] flex-wrap" data-testid="detail-breadcrumb">
           <Link to="/" className="hover:text-[#556B2F] dark:hover:text-[#D4AF37] transition-colors">Home</Link>
           <ChevronRight className="w-4 h-4" />
           <Link to="/products" className="hover:text-[#556B2F] dark:hover:text-[#D4AF37] transition-colors">Products</Link>
@@ -119,7 +119,7 @@ export default function ProductDetailPage() {
                     <div className="text-[8rem] sm:text-[10rem]">
                       {emoji}
                     </div>
-                    <span className="text-xs font-semibold text-gray-600 dark:text-[#dcd6bf] uppercase tracking-widest mt-4">[ Image Placeholder ]</span>
+                    <span className="text-xs font-semibold text-gray-800 dark:text-[#dcd6bf] uppercase tracking-widest mt-4">[ Image Placeholder ]</span>
                   </div>
                 )}
               </div>
@@ -180,7 +180,7 @@ export default function ProductDetailPage() {
 
             <div className="p-6 rounded-2xl bg-[#556B2F]/10 dark:bg-[#D4AF37]/10 border border-[#556B2F]/20 flex flex-wrap items-baseline gap-3">
               <span className="text-4xl sm:text-5xl font-extrabold text-[#556B2F] dark:text-[#D4AF37]">₹{product.price}</span>
-              <span className="text-xs text-gray-600 dark:text-[#dcd6bf] font-medium">Wholesale Price (Inclusive of all taxes)</span>
+              <span className="text-xs text-gray-800 dark:text-[#dcd6bf] font-medium">Wholesale Price (Inclusive of all taxes)</span>
             </div>
 
             {/* SHARE & ENQUIRE ROW */}
@@ -303,7 +303,7 @@ export default function ProductDetailPage() {
             </div>
             <div className="min-w-0">
               <h4 className="font-bold text-sm truncate">{product.name}</h4>
-              <p className="text-[11px] text-gray-600 dark:text-[#dcd6bf]">{product.weight} • ₹{product.price} each</p>
+              <p className="text-[11px] text-gray-800 dark:text-[#dcd6bf]">{product.weight} • ₹{product.price} each</p>
             </div>
           </div>
 
@@ -319,7 +319,7 @@ export default function ProductDetailPage() {
             </div>
 
             <div className="text-right shrink-0">
-              <span className="text-[10px] text-gray-600 dark:text-[#dcd6bf] block leading-tight">Total</span>
+              <span className="text-[10px] text-gray-800 dark:text-[#dcd6bf] block leading-tight">Total</span>
               <span className="text-base sm:text-lg font-extrabold text-[#556B2F] dark:text-[#D4AF37] leading-tight" data-testid="sticky-total-price">
                 ₹{product.price * qty}
               </span>
@@ -363,7 +363,7 @@ function MiniCard({ product }) {
       </div>
       <div>
         <h4 className="font-bold text-sm mb-1 line-clamp-1 text-[#2C3E1F] dark:text-[#F5F1E4]">{product.name}</h4>
-        <p className="text-xs text-gray-600 dark:text-[#dcd6bf] mb-2">{product.weight}</p>
+        <p className="text-xs text-gray-800 dark:text-[#dcd6bf] mb-2">{product.weight}</p>
         <p className="text-sm font-extrabold text-[#556B2F] dark:text-[#D4AF37]">₹{product.price}</p>
       </div>
     </Link>

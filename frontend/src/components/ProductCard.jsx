@@ -61,7 +61,7 @@ export default function ProductCard({ product }) {
               <div className="text-5xl mb-2 group-hover:scale-125 transition-transform duration-300">
                 {emoji}
               </div>
-              <span className="text-[10px] font-semibold text-gray-600 dark:text-[#dcd6bf] uppercase tracking-widest">[ Image Placeholder ]</span>
+              <span className="text-[10px] font-semibold text-gray-800 dark:text-[#dcd6bf] uppercase tracking-widest">[ Image Placeholder ]</span>
             </>
           )}
 
@@ -81,14 +81,14 @@ export default function ProductCard({ product }) {
         <h3 className="font-bold text-lg font-serif text-[#2C3E1F] dark:text-[#F5F1E4] mb-1 group-hover:text-[#556B2F] dark:group-hover:text-[#D4AF37] transition-colors">
           {product.name}
         </h3>
-        <p className="text-xs text-gray-600 dark:text-[#dcd6bf] line-clamp-2 mb-3">
+        <p className="text-xs text-gray-800 dark:text-[#dcd6bf] line-clamp-2 mb-3">
           {product.description}
         </p>
       </div>
 
       <div className="space-y-3 pt-3 border-t border-[#556B2F]/15" onClick={(e) => e.stopPropagation()}>
         <div className="flex justify-between items-center">
-          <span className="text-xs font-semibold text-gray-600 dark:text-[#dcd6bf]">
+          <span className="text-xs font-semibold text-gray-800 dark:text-[#dcd6bf]">
             Weight: <strong className="text-[#2C3E1F] dark:text-[#F5F1E4]">{product.weight}</strong>
           </span>
           <span className="text-lg font-extrabold text-[#556B2F] dark:text-[#D4AF37]" data-testid={`product-price-${product.id}`}>₹{product.price}</span>

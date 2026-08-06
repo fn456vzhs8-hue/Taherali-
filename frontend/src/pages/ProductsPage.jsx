@@ -30,7 +30,7 @@ export default function ProductsPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fadeIn" data-testid="products-page">
-      <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-[#dcd6bf] mb-6" data-testid="products-breadcrumb">
+      <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-800 dark:text-[#dcd6bf] mb-6" data-testid="products-breadcrumb">
         <Link to="/" className="hover:text-[#556B2F] dark:hover:text-[#D4AF37] transition-colors">Home</Link>
         <ChevronRight className="w-4 h-4" />
         <span className="text-[#2C3E1F] dark:text-[#F5F1E4] font-semibold">Retail Catalog</span>
@@ -91,7 +91,7 @@ export default function ProductsPage() {
         </div>
 
         <div className="relative w-full lg:w-80">
-          <Search className="absolute left-3 top-3 w-4 h-4 text-gray-500 dark:text-[#a8b39c]" />
+          <Search className="absolute left-3 top-3 w-4 h-4 text-gray-700 dark:text-[#a8b39c]" />
           <input
             type="text"
             placeholder="Search pickles, biscuits, ghee…"
@@ -122,9 +122,9 @@ export default function ProductsPage() {
         </div>
       ) : (
         <div className="text-center py-24" data-testid="no-products-found">
-          <Package className="w-12 h-12 text-gray-500 mx-auto mb-4" />
+          <Package className="w-12 h-12 text-gray-700 mx-auto mb-4" />
           <h3 className="text-lg font-bold">No products found</h3>
-          <p className="text-sm text-gray-600 dark:text-[#dcd6bf]">Try searching with a different keyword or category.</p>
+          <p className="text-sm text-gray-800 dark:text-[#dcd6bf]">Try searching with a different keyword or category.</p>
         </div>
       )}
     </div>
