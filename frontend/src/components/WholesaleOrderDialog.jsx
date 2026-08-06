@@ -8,6 +8,14 @@ export default function WholesaleOrderDialog({ product, onClose, whatsappNumber 
   const [mode, setMode] = useState(20);           // 20 | 50 | 100 | "custom"
   const [customQty, setCustomQty] = useState(50); // used only in custom mode
 
+  // Reset state whenever a new product is opened
+  useEffect(() => {
+    if (product) {
+      setMode(20);
+      setCustomQty(50);
+    }
+  }, [product?.id]);
+
   // Prevent body scroll when open
   useEffect(() => {
     if (product) {
