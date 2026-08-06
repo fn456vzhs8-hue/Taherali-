@@ -129,19 +129,6 @@ export default function ProductDetailPage() {
               </div>
             </div>
 
-            {/* Thumbnail placeholders (future gallery) */}
-            <div className="grid grid-cols-4 gap-3">
-              {[1, 2, 3, 4].map(n => (
-                <div key={n} className="aspect-square rounded-xl bg-[#F4EEDD]/70 dark:bg-[#243020]/80 border border-[#556B2F]/20 flex items-center justify-center overflow-hidden opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
-                  {product.image ? (
-                    <img src={product.image} alt={`${product.name} thumbnail ${n}`} className="w-full h-full object-cover" loading="lazy" />
-                  ) : (
-                    <span className="text-2xl">{emoji}</span>
-                  )}
-                </div>
-              ))}
-            </div>
-
             {/* PRODUCT IMAGE NOTICE (below image, above description) */}
             <div
               className="flex items-start gap-3 p-4 sm:p-5 rounded-2xl bg-[#F4EEDD] dark:bg-[#243020] border border-[#556B2F]/30 dark:border-[#D4AF37]/25 shadow-sm"
