@@ -1,0 +1,74 @@
+{
+  "app_info": {
+    "name": "Taher Ali Enterprises Wholesale Portal",
+    "owner": "Mohammed Abdullah Bilal",
+    "location": "Hyderabad, Telangana",
+    "whatsapp_number": "6305486808",
+    "context": "B2B Wholesale E-Commerce Portal for Pickles, Biscuits, and Pure Ghee with Tier Discounts and WhatsApp Order Dispatch"
+  },
+  "typography": {
+    "heading_font": "Outfit",
+    "body_font": "Plus Jakarta Sans",
+    "mono_font": "JetBrains Mono",
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight font-extrabold",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight font-bold",
+      "h3": "text-xl sm:text-2xl font-semibold",
+      "h4": "text-lg sm:text-xl font-medium",
+      "body": "text-base leading-relaxed"
+    }
+  },
+  "colors": {
+    "archetype": "Organic & Earthy / Heritage Indian Artisanal",
+    "primary": "#B45309",
+    "primary_hover": "#92400E",
+    "accent": "#D97706",
+    "surface_light": "#FFFBEB",
+    "surface_dark": "#18181B",
+    "text_dark": "#1C1917",
+    "text_light": "#FAFAFA",
+    "border_light": "#E7E5E4",
+    "border_dark": "#27272A",
+    "forbidden_colors": ["#7351B7", "#1B93A4"]
+  },
+  "image_urls": {
+    "pickles": [
+      {
+        "category": "pickles",
+        "title": "Artisanal Pickles Assortment",
+        "url": "https://images.unsplash.com/photo-1645679057638-e435c5347798?crop=entropy&cs=srgb&fm=jpg&q=85"
+      }
+    ],
+    "biscuits": [
+      {
+        "category": "biscuits",
+        "title": "Traditional Biscuits & Cookies Assortment",
+        "url": "https://images.unsplash.com/photo-1598839950984-034f6dc7b495?crop=entropy&cs=srgb&fm=jpg&q=85"
+      }
+    ],
+    "ghee": [
+      {
+        "category": "ghee",
+        "title": "Pure Cow Ghee Traditional Jar",
+        "url": "https://images.unsplash.com/photo-1691480208637-6ed63aac6694?crop=entropy&cs=srgb&fm=jpg&q=85"
+      }
+    ]
+  },
+  "key_features": [
+    "Interactive wholesale product catalog with quantity selectors (Pickles, Biscuits, Pure Ghee)",
+    "Live shopping cart with instant totals, case size multiplier support, and item customization",
+    "Bulk quote calculator with tier discounts (e.g., 5% off for 10+ units, 10% off for 25+ units, 15% off for 50+ units)",
+    "WhatsApp instant order generator to phone 6305486808 with formatted order summary",
+    "Order checkout modal with business details, delivery address, payment terms, and WhatsApp confirmation",
+    "About & Contact sections highlighting Mohammed Abdullah Bilal, Hyderabad location, and interactive map placeholder",
+    "Light/Dark theme switcher with persistent local storage",
+    "Data-testid attributes on all interactive elements for rigorous automated testability"
+  ],
+  "universal_guidelines": [
+    "Do not use universal transitions (transition: all)",
+    "Use generous spacing (p-8, p-12)",
+    "Ensure high contrast and accessibility for all text and hover states",
+    "Never use full transparent backgrounds without blur/scrim in headers or modals",
+    "Maintain data-testid attributes on all interactive elements"
+  ]
+}
