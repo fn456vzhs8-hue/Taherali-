@@ -285,8 +285,12 @@ export default function ProductDetailPage() {
       <div className="fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-[#1e2a1a]/95 backdrop-blur-md border-t border-[#556B2F]/30 py-2.5 px-4 sm:px-8 shadow-2xl" data-testid="sticky-purchase-bar">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
           <div className="hidden sm:flex items-center gap-3 min-w-0">
-            <div className="w-10 h-10 rounded-lg bg-[#F4EEDD] dark:bg-[#243020] flex items-center justify-center text-xl shrink-0">
-              {emoji}
+            <div className="w-10 h-10 rounded-lg bg-[#F4EEDD] dark:bg-[#243020] flex items-center justify-center overflow-hidden shrink-0">
+              {product.image ? (
+                <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+              ) : (
+                <span className="text-xl">{emoji}</span>
+              )}
             </div>
             <div className="min-w-0">
               <h4 className="font-bold text-sm truncate">{product.name}</h4>

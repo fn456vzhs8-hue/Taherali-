@@ -1,0 +1,45 @@
+{
+  "summary": "Frontend bug/lag sweep completed on Taher Ali Enterprises B2B site. Verified all 10 retail product cards render with real customer-assets images (no broken URLs, zero 4xx/5xx image responses). Product Detail (p1) shows exactly one main image, no thumbnail strip, sticky bar uses real image and qty/total math is correct (₹89×3=₹267). Cart, WhatsApp checkout deep-link, wholesale quantity dialog (presets 20/50/100 + Custom + min-10 note), search, theme toggle (light↔dark), and mobile 390px viewport all functional. Related products carousel renders MiniCards with real images. No horizontal scroll on mobile. WhatsApp URL is well-formed with 916305486808 and encoded order details.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "WholesaleQuantityDialog", "issue": "In Custom qty mode, entering a value below 10 (e.g. 5) shows the 'minimum 10 units' hint but the confirm 'Add to Cart' button remains enabled (not disabled). Item does not actually get added to cart on click (silent block), which is confusing UX — button should be visibly disabled or should surface an inline error toast.", "selector": "WholesaleQuantityDialog custom input + confirm button", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Global (light mode)", "issues": ["Contrast bump to text-gray-{700,800} is applied consistently across Home, Products, Product Detail, Wholesale — readability good in both light and dark modes. 'Our Promise' banner labels (Hygienic Facility / Honest Pricing) render readable on green banner."]}
+    ],
+    "console_warnings": [
+      {"page": "/wholesale", "issue": "React hydration warning: '<span> cannot be a child of <option>' from WholesaleProductsPage.jsx line 152 (SORT_OPTIONS select). Caused by dev-instrumentation wrapping option label text in a <span data-ve-dynamic>. Does not break functionality but pollutes console and is a real HTML spec violation. Consider rendering plain string children in <option> (avoid any wrapping component/span in option labels).", "priority": "LOW"}
+    ]
+  },
+  "verified_flows": [
+    "GET /products renders 10 cards with data-testid product-card-p{1-8,13,14} and 10 real images (no broken image icons)",
+    "GET /products/p1 shows single product-main-image, ZERO thumbnail strip elements, sticky-purchase-bar present",
+    "Sticky bar qty +/-, total price computation, Add to Cart, Buy Now buttons all wired",
+    "Add to Cart on retail card -> in-cart badge + qty controls appear; cart drawer opens showing 'RETAIL PRODUCTS (1)' section",
+    "Wholesale dialog: opens on Add to Cart row click, shows presets 20/50/100 + Custom, min-10 hint present, estimated total live-updates",
+    "Search 'mango' on /products filters to 1 card correctly",
+    "Theme toggle sets html.dark class; navbar moon/sun icon swap works",
+    "Checkout modal 'Place Order via WhatsApp' generates wa.me/916305486808?text=... with Name, Mobile, Address, order summary, delivery info encoded — verified via window.open interception, URL length 737 chars, no click-through to WhatsApp",
+    "Mobile 390x844: no horizontal scroll, sticky purchase bar visible with real thumbnail",
+    "All customer-assets-4nw71qhi.emergentagent.net image URLs return 200 (0 broken image responses captured during navigation)"
+  ],
+  "test_report_links": [],
+  "action_items": [
+    "(Optional / LOW) Disable the 'Add to Cart' confirm button in WholesaleQuantityDialog when custom qty < 10, OR show an explicit inline error message instead of only the greyed helper text.",
+    "(Optional / LOW) Fix hydration warning on Wholesale sort <select>: ensure <option> children are plain text (currently wrapped by dev-tool <span data-ve-dynamic>). Investigate whether this is user code or Emergent VE instrumentation — if instrumentation, safe to ignore."
+  ],
+  "critical_code_review_comments": [
+    "ProductDetailPage.jsx renders cleanly with product.image and gracefully falls back to emoji + placeholder when image missing (no regression)",
+    "ProductCard.jsx uses loading='lazy' on images — good for perf on /products",
+    "No hardcoded backend URLs anywhere in checked pages; app is fully client-side per spec",
+    "WhatsApp deep-link is URL-encoded correctly using encodeURIComponent — safe from injection"
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (no backend)", "frontend": "~95%"},
+  "seed_data_creation": "None. Only in-memory cart items during the test session.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "10 retail products live in /app/frontend/src/mock.js (p1-p8, p13, p14) — no product ids p9-p12. Wholesale page uses a separate 106-item dataset (not from mock.js). Cart context is unified via ShopContext. WhatsApp number 916305486808 confirmed in BUSINESS_INFO. Preview URL: https://wholesale-provisions-3.preview.emergentagent.com"
+}
