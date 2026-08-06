@@ -24,7 +24,9 @@ import {
   ExternalLink,
   Info,
   Package,
-  Sparkles
+  Sparkles,
+  ZoomIn,
+  ArrowLeft
 } from "lucide-react";
 import { PRODUCTS, BUSINESS_INFO, BULK_TIERS } from "./mock";
 import { toast } from "sonner";
@@ -38,6 +40,9 @@ export default function TaherAliApp() {
   const [cartOpen, setCartOpen] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [bulkCalculatorOpen, setBulkCalculatorOpen] = useState(false);
+  
+  // Selected Product for Amazon-Style Full Page Modal
+  const [selectedProduct, setSelectedProduct] = useState(null);
   
   // Checkout Form State
   const [formData, setFormData] = useState({
@@ -157,7 +162,7 @@ export default function TaherAliApp() {
       </div>
 
       {/* NAVIGATION BAR */}
-      <nav className="sticky top-0 z-50 glass-panel shadow-sm border-b border-[#556B2F]/20 transition-colors" data-testid="main-navbar">
+      <nav className="sticky top-0 z-45 glass-panel shadow-sm border-b border-[#556B2F]/20 transition-colors" data-testid="main-navbar">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
           {/* Logo */}
@@ -284,7 +289,7 @@ export default function TaherAliApp() {
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Pure & Hygienic</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-[#2C3E1F] dark:text-[#D4AF37]">₹99+</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-[#2C3E1F] dark:text-[#D4AF37]">₹89+</p>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Wholesale Pricing</p>
               </div>
               <div>
@@ -303,26 +308,32 @@ export default function TaherAliApp() {
               </div>
 
               {/* Floating product card 1 */}
-              <div className="animate-float glass-panel p-4 rounded-2xl shadow-lg border border-[#556B2F]/20 flex items-center gap-4">
+              <div 
+                onClick={() => setSelectedProduct(PRODUCTS[0])}
+                className="animate-float glass-panel p-4 rounded-2xl shadow-lg border border-[#556B2F]/20 flex items-center gap-4 cursor-pointer hover:border-[#D4AF37]"
+              >
                 <div className="w-16 h-16 rounded-xl bg-[#F4EEDD] dark:bg-[#1a2316] flex items-center justify-center text-2xl">
                   🥭
                 </div>
                 <div>
                   <h4 className="font-bold text-base">Traditional Mango Achar</h4>
                   <p className="text-xs text-gray-500 dark:text-gray-400">250g | Wholesale Pack</p>
-                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹99 <span className="text-xs font-normal text-gray-500">/ unit</span></p>
+                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹89 <span className="text-xs font-normal text-gray-500">/ unit</span></p>
                 </div>
               </div>
 
               {/* Floating product card 2 */}
-              <div className="animate-float-delayed glass-panel p-4 rounded-2xl shadow-lg border border-[#556B2F]/20 flex items-center gap-4">
+              <div 
+                onClick={() => setSelectedProduct(PRODUCTS[6])}
+                className="animate-float-delayed glass-panel p-4 rounded-2xl shadow-lg border border-[#556B2F]/20 flex items-center gap-4 cursor-pointer hover:border-[#D4AF37]"
+              >
                 <div className="w-16 h-16 rounded-xl bg-[#F4EEDD] dark:bg-[#1a2316] flex items-center justify-center text-2xl">
                   🍪
                 </div>
                 <div>
-                  <h4 className="font-bold text-base">Osmania & Butter Biscuits</h4>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">500g Family Pack</p>
-                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹249 <span className="text-xs font-normal text-gray-500">/ unit</span></p>
+                  <h4 className="font-bold text-base">Osmania & Cashew Biscuits</h4>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">400g Family Pack</p>
+                  <p className="text-sm font-bold text-[#556B2F] dark:text-[#D4AF37]">₹240 <span className="text-xs font-normal text-gray-500">/ unit</span></p>
                 </div>
               </div>
 
@@ -346,7 +357,7 @@ export default function TaherAliApp() {
             Our Wholesale Product Catalog
           </h2>
           <p className="text-base text-gray-600 dark:text-gray-300">
-            Hand-crafted pickles, traditional Hyderabad bakery biscuits, and pure ghee available in bulk and retail quantities at unbeatable wholesale prices.
+            Hand-crafted pickles, traditional Hyderabad bakery biscuits, and pure ghee available in bulk and retail quantities at unbeatable wholesale prices. Click any product for details.
           </p>
 
           {/* Search & Category Filter */}
@@ -381,7 +392,12 @@ export default function TaherAliApp() {
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" data-testid="product-grid">
           {filteredProducts.map(product => (
-            <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+              onAddToCart={addToCart} 
+              onSelect={() => setSelectedProduct(product)} 
+            />
           ))}
         </div>
 
@@ -660,6 +676,21 @@ export default function TaherAliApp() {
           <p className="mt-2 sm:mt-0">Designed for Wholesale Excellence in Hyderabad, Telangana</p>
         </div>
       </footer>
+
+      {/* AMAZON-STYLE FULL SCREEN PRODUCT PAGE MODAL */}
+      {selectedProduct && (
+        <ProductDetailPage 
+          product={selectedProduct} 
+          onClose={() => setSelectedProduct(null)} 
+          onAddToCart={addToCart}
+          onBuyNow={(prod, qty) => {
+            addToCart(prod, qty);
+            setSelectedProduct(null);
+            setCheckoutOpen(true);
+          }}
+          onSelectRelated={(p) => setSelectedProduct(p)}
+        />
+      )}
 
       {/* SHOPPING CART SLIDER / MODAL */}
       {cartOpen && (
@@ -1056,28 +1087,38 @@ export default function TaherAliApp() {
 }
 
 // Product Card Sub-component
-function ProductCard({ product, onAddToCart }) {
+function ProductCard({ product, onAddToCart, onSelect }) {
   const [qty, setQty] = useState(1);
 
   return (
-    <div className="glass-panel p-5 rounded-2xl shadow-md hover:shadow-xl transition-all border border-[#556B2F]/20 flex flex-col justify-between group" data-testid={`product-card-${product.id}`}>
+    <div 
+      className="glass-panel p-5 rounded-2xl shadow-md hover:shadow-2xl transition-all border border-[#556B2F]/20 flex flex-col justify-between group cursor-pointer hover:-translate-y-1" 
+      onClick={onSelect}
+      data-testid={`product-card-${product.id}`}
+    >
       <div>
-        {/* Image Placeholder */}
-        <div className="relative w-full h-48 rounded-xl bg-gradient-to-br from-[#F4EEDD] to-[#e8dfc8] dark:from-[#22301c] dark:to-[#172213] flex flex-col items-center justify-center mb-4 overflow-hidden border border-[#556B2F]/20 group-hover:scale-[1.02] transition-transform">
-          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#556B2F] text-white text-xs font-bold shadow">
+        {/* Image Placeholder with Zoom on Hover */}
+        <div className="relative w-full h-48 rounded-xl bg-gradient-to-br from-[#F4EEDD] to-[#e8dfc8] dark:from-[#22301c] dark:to-[#172213] flex flex-col items-center justify-center mb-4 overflow-hidden border border-[#556B2F]/20">
+          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#556B2F] text-white text-xs font-bold shadow z-10">
             {product.category}
           </span>
-          <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#D4AF37] text-[#2C3E1F] text-xs font-bold shadow">
+          <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#D4AF37] text-[#2C3E1F] text-xs font-bold shadow z-10">
             {product.badge}
           </span>
           
-          <div className="text-4xl mb-2">
+          <div className="text-4xl mb-2 group-hover:scale-125 transition-transform duration-300">
             {product.imageType === 'pickle' ? '🥭' : product.imageType === 'biscuit' ? '🍪' : '🧈'}
           </div>
           <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest">[ Image Placeholder ]</span>
+          
+          <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <span className="px-3.5 py-1.5 rounded-lg bg-[#556B2F] text-white text-xs font-bold shadow flex items-center gap-1.5">
+              <ZoomIn className="w-3.5 h-3.5" /> View Details
+            </span>
+          </div>
         </div>
 
-        <h3 className="font-bold text-lg font-serif text-[#2C3E1F] dark:text-[#FDFBF7] mb-1">
+        <h3 className="font-bold text-lg font-serif text-[#2C3E1F] dark:text-[#FDFBF7] mb-1 group-hover:text-[#556B2F] transition-colors">
           {product.name}
         </h3>
         <p className="text-xs text-gray-600 dark:text-gray-300 line-clamp-2 mb-3">
@@ -1085,7 +1126,7 @@ function ProductCard({ product, onAddToCart }) {
         </p>
       </div>
 
-      <div className="space-y-3 pt-3 border-t border-[#556B2F]/15">
+      <div className="space-y-3 pt-3 border-t border-[#556B2F]/15" onClick={(e) => e.stopPropagation()}>
         <div className="flex justify-between items-center">
           <span className="text-xs font-semibold text-gray-500">Weight: <strong className="text-[#2C3E1F] dark:text-[#FDFBF7]">{product.weight}</strong></span>
           <span className="text-lg font-extrabold text-[#556B2F] dark:text-[#D4AF37]" data-testid={`product-price-${product.id}`}>₹{product.price}</span>
@@ -1116,12 +1157,209 @@ function ProductCard({ product, onAddToCart }) {
               onAddToCart(product, qty);
               setQty(1);
             }}
-            className="flex-1 py-2.5 px-4 rounded-xl bg-[#556B2F] hover:bg-[#2C3E1F] text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 transition-all transform active:scale-95"
+            className="flex-1 py-2.5 px-3 rounded-xl bg-[#556B2F] hover:bg-[#2C3E1F] text-white font-semibold text-xs shadow-md flex items-center justify-center gap-1.5 transition-all transform active:scale-95"
             data-testid={`add-to-cart-${product.id}`}
           >
-            <ShoppingBag className="w-4 h-4" /> Add to Cart
+            <ShoppingBag className="w-3.5 h-3.5" /> Quick Add
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+// Amazon-Style Product Page Modal Component with Sticky Purchase Section
+function ProductDetailPage({ product, onClose, onAddToCart, onBuyNow, onSelectRelated }) {
+  const [qty, setQty] = useState(1);
+  const [activeImageZoom, setActiveImageZoom] = useState(false);
+  const relatedProducts = PRODUCTS.filter(p => p.id !== product.id && p.category === product.category).slice(0, 4);
+
+  return (
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-md flex justify-center animate-fadeIn" data-testid="product-detail-modal">
+      <div className="relative w-full max-w-5xl bg-[#FDFBF7] dark:bg-[#1a2316] text-[#2C3E1F] dark:text-[#FDFBF7] my-8 rounded-3xl shadow-2xl border border-[#556B2F]/30 overflow-hidden flex flex-col">
+        
+        {/* Top Header Bar */}
+        <div className="p-4 sm:px-8 border-b border-[#556B2F]/20 flex items-center justify-between bg-white/80 dark:bg-[#22301c]/80 sticky top-0 z-20 backdrop-blur-md">
+          <button 
+            onClick={onClose} 
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#F4EEDD] dark:bg-[#172213] font-semibold text-sm hover:bg-[#556B2F] hover:text-white transition-colors"
+            data-testid="back-to-catalog-btn"
+          >
+            <ArrowLeft className="w-4 h-4" /> Back to Catalog
+          </button>
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#556B2F]/10 text-[#556B2F] dark:text-[#D4AF37]">
+              {product.category}
+            </span>
+            <button onClick={onClose} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800">
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
+
+        {/* Main Content Layout (Amazon Style: Left Image, Center Info, Right Buy Box) */}
+        <div className="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 pb-32">
+          
+          {/* Left: Product Image with Zoom */}
+          <div className="lg:col-span-5 space-y-4">
+            <div 
+              className={`relative w-full h-[320px] sm:h-[400px] rounded-2xl bg-gradient-to-br from-[#F4EEDD] to-[#e8dfc8] dark:from-[#22301c] dark:to-[#172213] flex flex-col items-center justify-center border border-[#556B2F]/30 shadow-lg overflow-hidden cursor-zoom-in group`}
+              onClick={() => setActiveImageZoom(!activeImageZoom)}
+            >
+              <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#D4AF37] text-[#2C3E1F] text-xs font-bold shadow">
+                {product.badge}
+              </span>
+              <div className={`text-7xl sm:text-8xl mb-3 transition-transform duration-500 ${activeImageZoom ? 'scale-150' : 'group-hover:scale-110'}`}>
+                {product.imageType === 'pickle' ? '🥭' : product.imageType === 'biscuit' ? '🍪' : '🧈'}
+              </div>
+              <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest">[ Image Placeholder ]</span>
+              <div className="absolute bottom-4 left-4 px-3 py-1.5 rounded-lg bg-black/40 text-white text-xs font-medium flex items-center gap-1.5">
+                <ZoomIn className="w-3.5 h-3.5" /> {activeImageZoom ? 'Click to zoom out' : 'Click to zoom image'}
+              </div>
+            </div>
+          </div>
+
+          {/* Center & Right: Product Details & Buy Box */}
+          <div className="lg:col-span-7 space-y-6">
+            <div>
+              <h2 className="text-2xl sm:text-4xl font-extrabold font-serif text-[#2C3E1F] dark:text-[#FDFBF7] mb-2">
+                {product.name}
+              </h2>
+              <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-300">
+                <span>Weight: <strong className="text-[#2C3E1F] dark:text-[#FDFBF7]">{product.weight}</strong></span>
+                <span>•</span>
+                <span className="text-green-600 dark:text-green-400 font-semibold">{product.availability}</span>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-[#556B2F]/10 dark:bg-[#D4AF37]/10 border border-[#556B2F]/20 flex items-baseline gap-3">
+              <span className="text-3xl sm:text-4xl font-extrabold text-[#556B2F] dark:text-[#D4AF37]">₹{product.price}</span>
+              <span className="text-xs text-gray-500 font-medium">Inclusive of all wholesale taxes (Hyderabad Dispatch)</span>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-sm text-[#2C3E1F] dark:text-[#D4AF37] mb-1">Product Description</h4>
+              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                {product.description}
+              </p>
+            </div>
+
+            {/* Highlights */}
+            {product.highlights && (
+              <div className="space-y-2">
+                <h4 className="font-bold text-sm text-[#2C3E1F] dark:text-[#D4AF37]">Product Highlights</h4>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                  {product.highlights.map((h, i) => (
+                    <li key={i} className="flex items-center gap-2 bg-[#F4EEDD] dark:bg-[#22301c] px-3 py-2 rounded-xl">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#556B2F] dark:text-[#D4AF37]" /> {h}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Ingredients & Storage (Editable/Customizable format) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs pt-2 border-t border-[#556B2F]/20">
+              <div className="glass-panel p-3.5 rounded-xl border border-[#556B2F]/20 space-y-1">
+                <p className="font-bold text-[#556B2F] dark:text-[#D4AF37]">Ingredients</p>
+                <p className="text-gray-600 dark:text-gray-300">{product.ingredients}</p>
+              </div>
+              <div className="glass-panel p-3.5 rounded-xl border border-[#556B2F]/20 space-y-1">
+                <p className="font-bold text-[#556B2F] dark:text-[#D4AF37]">Storage Instructions</p>
+                <p className="text-gray-600 dark:text-gray-300">{product.storage}</p>
+              </div>
+            </div>
+
+            {/* Delivery Info */}
+            <div className="flex items-center gap-3 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-[#22301c] p-3 rounded-xl">
+              <Truck className="w-5 h-5 text-[#556B2F] dark:text-[#D4AF37] shrink-0" />
+              <span>Fast wholesale delivery across all Hyderabad and Telangana districts. Same-day dispatch for orders confirmed before 1 PM.</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Related Products Carousel */}
+        {relatedProducts.length > 0 && (
+          <div className="p-6 sm:p-10 bg-[#F4EEDD]/50 dark:bg-[#172213]/50 border-t border-[#556B2F]/20 mb-20">
+            <h3 className="font-serif font-bold text-xl mb-4 text-[#2C3E1F] dark:text-[#FDFBF7]">Related Wholesale Products</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {relatedProducts.map(rel => (
+                <div 
+                  key={rel.id} 
+                  onClick={() => onSelectRelated(rel)}
+                  className="glass-panel p-3 rounded-xl cursor-pointer hover:border-[#D4AF37] transition-all flex flex-col justify-between"
+                >
+                  <div className="text-3xl text-center py-4">
+                    {rel.imageType === 'pickle' ? '🥭' : rel.imageType === 'biscuit' ? '🍪' : '🧈'}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-xs truncate">{rel.name}</h4>
+                    <p className="text-xs text-gray-500">{rel.weight}</p>
+                    <p className="text-xs font-extrabold text-[#556B2F] dark:text-[#D4AF37]">₹{rel.price}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* STICKY PURCHASE SECTION AT THE BOTTOM */}
+        <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#1a2316]/95 backdrop-blur-md border-t border-[#556B2F]/30 p-4 sm:px-12 shadow-2xl flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <div className="hidden sm:block">
+              <h4 className="font-bold text-sm">{product.name}</h4>
+              <p className="text-xs text-gray-500">{product.weight} • ₹{product.price} each</p>
+            </div>
+            
+            {/* Quantity Selector */}
+            <div className="flex items-center gap-1.5 bg-gray-100 dark:bg-[#22301c] rounded-xl p-1.5 border border-[#556B2F]/30">
+              <button
+                onClick={() => setQty(Math.max(1, qty - 1))}
+                className="p-1 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-colors"
+                data-testid="sticky-qty-minus"
+              >
+                <Minus className="w-4 h-4" />
+              </button>
+              <span className="w-8 text-center font-bold text-sm" data-testid="sticky-qty-val">{qty}</span>
+              <button
+                onClick={() => setQty(qty + 1)}
+                className="p-1 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-colors"
+                data-testid="sticky-qty-plus"
+              >
+                <Plus className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="text-right">
+              <span className="text-xs text-gray-500 block">Total Price</span>
+              <span className="text-xl sm:text-2xl font-extrabold text-[#556B2F] dark:text-[#D4AF37]" data-testid="sticky-total-price">
+                ₹{product.price * qty}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => onAddToCart(product, qty)}
+                className="px-5 py-3 rounded-xl bg-[#556B2F] hover:bg-[#2C3E1F] text-white font-bold text-sm shadow-lg flex items-center gap-2 transition-all transform active:scale-95"
+                data-testid="sticky-add-to-cart-btn"
+              >
+                <ShoppingBag className="w-4 h-4" /> Add to Cart
+              </button>
+              <button
+                onClick={() => onBuyNow(product, qty)}
+                className="px-5 py-3 rounded-xl bg-[#D4AF37] hover:bg-[#c59d2e] text-[#2C3E1F] font-bold text-sm shadow-lg flex items-center gap-2 transition-all transform active:scale-95"
+                data-testid="sticky-buy-now-btn"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
