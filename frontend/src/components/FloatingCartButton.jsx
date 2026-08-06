@@ -47,7 +47,7 @@ export default function FloatingCartButton() {
         )}
       </div>
       <div className="text-left leading-tight">
-        <span className="block text-[10px] uppercase tracking-wider opacity-80">Wholesale Cart</span>
+        <span className="block text-[10px] uppercase tracking-wider opacity-80">View Cart</span>
         <span className="block text-sm font-extrabold" data-testid="floating-cart-total">
           ₹{grandTotal.toLocaleString("en-IN")} · {totalItemsCount} {totalItemsCount === 1 ? "item" : "items"}
         </span>
