@@ -87,3 +87,8 @@ memory/test_credentials.md
 # Mobile development
 android-sdk/my_project.zip
 my_project.zip
+.env.*
+*.env
+credentials.json
+*.key
+.credentials
