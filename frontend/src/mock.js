@@ -161,7 +161,7 @@ export const PRODUCTS = [
     description: "Premium quality pure ghee made from carefully selected ingredients. Ideal for cooking, sweets, traditional recipes, and everyday use.",
     badge: "100% Pure",
     imageType: "ghee",
-    image: "https://customer-assets-4nw71qhi.emergentagent.net/job_wholesale-provisions-3/artifacts/zta8dmek_image.png",
+    image: "/IMG_5746.jpeg",
     availability: "In Stock (Ready for Bulk Dispatch)",
     ingredients: "100% Pure Cow Milk Fat (Cultured Ghee).",
     storage: "Store in a cool dry place away from direct sunlight. Keep the container tightly closed after opening. Do not refrigerate. Use a dry spoon.",
